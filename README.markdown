@@ -1,4 +1,4 @@
-# Walming's dotfiles
+# Walm's dotfiles
 
 ## Install:
 
@@ -28,6 +28,6 @@ Changes to symlinked files without `<.replace>` bits do not require a `redot` on
 
 ### Inspired by
 
-http://github.com/ryanb/dotfiles/
+[ryanb/dotfiles](http://github.com/ryanb/dotfiles/)
 
-http://github.com/henrik/dotfiles/
+[henrik/dotfiles](http://github.com/henrik/dotfiles/)
