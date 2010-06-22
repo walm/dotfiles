@@ -1,0 +1,50 @@
+# Utility
+alias reload='source ~/.dotfiles/bash/aliases'
+alias redot='cd ~/.dotfiles && rake install; cd -'
+alias me='/Usr/local/Cellar/emacs/23.2/Emacs.app/Contents/MacOS/bin/emacsclient -c --no-wait'
+alias ea='me ~/.dotfiles/bash/aliases && reload' # Edit aliases
+alias ee='me ~/.dotfiles/bash/env'
+alias h='history'
+
+# Processes
+alias tu='top -o cpu' # cpu
+alias tm='top -o vsize' # memory
+
+# cd
+alias ..='cd ..'
+alias cdd='cd -'
+
+# Create a dir and cd it
+function take() { 
+    mkdir -p "$1"
+    cd "$1" 
+}
+
+# ls
+alias ls='ls -F'
+alias l='ls -lAh'
+alias ll='ls -l'
+alias la='ls -A'
+ 
+# git
+alias gl='git log'
+alias gs='git status'
+alias gp='git push'
+alias gd='git diff'
+alias ga='git add'
+alias gc='git commit'
+alias gca='git commit -a'
+alias gco='git checkout'
+alias gb='git branch'
+alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
+
+# Commit pending changes and quote all args as message
+function gg() { 
+    git commit -v -a -m "$*"
+}
+
+# Ruby
+alias r="rake"
+ 
+# commands starting with % for pasting from web
+alias %=' '

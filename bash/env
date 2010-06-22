@@ -1,0 +1,4 @@
+export CLICOLOR=1
+export EDITOR="me"
+export RI="-f ansi -w 70 -T"
+export PATH=~/bin:/opt/local/bin:$PATH
