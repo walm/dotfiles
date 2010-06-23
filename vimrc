@@ -1,5 +1,5 @@
 " based on http://github.com/twerth/dotfiles/raw/master/etc/vim/vimrc
-" -----------------------------------------------------------------------------  
+" -----------------------------------------------------------------------------
 " |                            VIM Settings                                   |
 " |                   (see gvimrc for gui vim settings)                       |
 " |                                                                           |
@@ -11,6 +11,7 @@
 " |   ,b = fuzzy find in all buffers                                          |
 " |   ,d = diff current file with last save                                   |
 " |   ,c = close current file/window                                          |
+" |   ,w = strip trailing withspaces                                          |
 " |                                                                           |
 " |   hh = inserts '=>'                                                       |
 " |   aa = inserts '@'                                                        |
@@ -27,7 +28,7 @@
 " |   Stab = display or change tab/spacing settings                           |
 " |                                                                           |
 " | Put machine/user specific settings in ~/.vimrc.local                      |
-" ----------------------------------------------------------------------------- 
+" -----------------------------------------------------------------------------
 
 set nocompatible
 
@@ -68,7 +69,7 @@ function! Stab()
   endif
   call SummarizeTabs()
 endfunction
- 
+
 function! SummarizeTabs()
   try
     echohl ModeMsg
@@ -83,6 +84,18 @@ function! SummarizeTabs()
   finally
     echohl None
   endtry
+endfunction
+
+function! <SID>StripTrailingWhitespaces()
+    " Preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " Do the business:
+    %s/\s\+$//e
+    " Clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
 endfunction
 
 
@@ -107,7 +120,7 @@ set cursorline
 
 " Searching *******************************************************************
 set incsearch " incremental search, search as you type
-set ignorecase " Ignore case when searching 
+set ignorecase " Ignore case when searching
 set smartcase " Ignore case when searching lowercase
 
 
@@ -115,7 +128,7 @@ set smartcase " Ignore case when searching lowercase
 " Switch on when the terminal has colors
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   "set t_Co=256 " 256 colors
-  set background=dark 
+  set background=dark
   syntax on " syntax highlighting
   colorscheme ir_black
   syntax on
@@ -145,7 +158,7 @@ map <S-Enter> O<ESC> " inserts new line without going into insert mode
 map <Enter> o<ESC>
 set fo-=r " do not insert a comment leader after an enter, (no work, fix!!)
 noremap <Leader>c :close<CR>
-
+noremap <Leader>w :call <SID>StripTrailingWhitespaces()<CR>
 
 " Cursor Movement *************************************************************
 " Make cursor move by visual lines instead of file lines (when wrapping)
@@ -176,7 +189,7 @@ set sessionoptions=blank,buffers,curdir,folds,help,resize,tabpages,winsize " Set
 
 " File Stuff ******************************************************************
 filetype plugin indent on
-"autocmd FileType html :set filetype=xhtml 
+"autocmd FileType html :set filetype=xhtml
 
 
 " Misc ************************************************************************
@@ -208,9 +221,9 @@ if has("autocmd")
   autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 endif " has(autocmd)
 
-" -----------------------------------------------------------------------------  
+" -----------------------------------------------------------------------------
 " |                              Plug-ins                                     |
-" -----------------------------------------------------------------------------  
+" -----------------------------------------------------------------------------
 
 " NERDTree ********************************************************************
 :noremap <Leader>n :NERDTreeToggle<CR>
@@ -236,33 +249,33 @@ let g:fuzzy_ignore = '.o;.obj;.bak;.exe;.pyc;.pyo;.DS_Store;.db'
 noremap <Leader>d :DiffChangesDiffToggle<CR>
 
 
-" -----------------------------------------------------------------------------  
+" -----------------------------------------------------------------------------
 " |                             OS Specific                                   |
 " |                      (GUI stuff goes in gvimrc)                           |
-" -----------------------------------------------------------------------------  
+" -----------------------------------------------------------------------------
 
 " Mac *************************************************************************
-"if has("mac") 
-" 
+"if has("mac")
+"
 "endif
- 
 
-" -----------------------------------------------------------------------------  
+
+" -----------------------------------------------------------------------------
 " |                               Startup                                     |
-" -----------------------------------------------------------------------------  
+" -----------------------------------------------------------------------------
 " Open NERDTree on start
 "autocmd VimEnter * exe 'NERDTree' | wincmd l
 
 
-" -----------------------------------------------------------------------------  
+" -----------------------------------------------------------------------------
 " |                               Host specific                               |
-" -----------------------------------------------------------------------------  
+" -----------------------------------------------------------------------------
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
 
 "if hostname() == "foo"
-"	do something
+" do something
 "endif
 
 " Example .vimrc.local:
