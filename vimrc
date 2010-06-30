@@ -197,7 +197,7 @@ set backspace=indent,eol,start
 set number " Show line numbers
 set matchpairs+=<:>
 set vb t_vb= " Turn off bell, this could be more annoying, but I'm not sure how
-
+set hidden " Allow hidden unsaved buffers
 
 " Invisible characters ********************************************************
 " Use the same symbols as TextMate for tabstops and EOLs
