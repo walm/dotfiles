@@ -1,9 +1,9 @@
 # Utility
 alias reload='source ~/.dotfiles/bash/aliases'
 alias redot='cd ~/.dotfiles && rake install; cd -'
-alias me='/Usr/local/Cellar/emacs/23.2/Emacs.app/Contents/MacOS/bin/emacsclient -c --no-wait'
-alias ea='me ~/.dotfiles/bash/aliases && reload' # Edit aliases
-alias ee='me ~/.dotfiles/bash/env'
+alias me='mvim'
+alias ea='vim ~/.dotfiles/bash/aliases && reload' # Edit aliases
+alias ee='vim ~/.dotfiles/bash/env'
 alias h='history'
 
 # Processes
