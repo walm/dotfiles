@@ -189,6 +189,7 @@ set sessionoptions=blank,buffers,curdir,folds,help,resize,tabpages,winsize " Set
 
 " File Stuff ******************************************************************
 filetype plugin indent on
+set fileencodings=utf-8,latin1
 "autocmd FileType html :set filetype=xhtml
 
 
