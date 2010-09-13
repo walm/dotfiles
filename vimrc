@@ -1,4 +1,4 @@
-" based on http://github.com/twerth/dotfiles/raw/master/etc/vim/vimrc
+" based on http://github.com/twerth/dotfiles/raw/master/etc/vim/vimrc and some from PeepCode VIM videos
 " -----------------------------------------------------------------------------
 " |                            VIM Settings                                   |
 " |                   (see gvimrc for gui vim settings)                       |
@@ -7,19 +7,18 @@
 " |   jj = <esc>  Very useful for keeping your hands on the home row          |
 " |   ,n = toggle NERDTree off and on                                         |
 " |                                                                           |
-" |   ,f = fuzzy find all files                                               |
-" |   ,b = fuzzy find in all buffers                                          |
+" |   ,p = fuzzy find files with peepopen (only gui)                          |
+" |   ,f or ,lf = fuzzy find all files                                        |
+" |   ,b or ,lb = fuzzy find in all buffers                                   |
 " |   ,d = diff current file with last save                                   |
 " |   ,c = close current file/window                                          |
 " |   ,w = strip trailing withspaces                                          |
-" |                                                                           |
-" |   hh = inserts '=>'                                                       |
-" |   aa = inserts '@'                                                        |
-" |                                                                           |
+" |   ,i = toggle invisibles                                                  |
 " |   ,h = new horizontal window                                              |
 " |   ,v = new vertical window                                                |
 " |                                                                           |
-" |   ,i = toggle invisibles                                                  |
+" |   hh = inserts '=>'                                                       |
+" |   aa = inserts '@'                                                        |
 " |                                                                           |
 " |   enter and shift-enter = adds a new line after/before the current line   |
 " |                                                                           |
@@ -32,6 +31,9 @@
 
 set nocompatible
 
+" load plugins with pathogen
+silent! call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
 
 " Indenting *******************************************************************
 set ai " Automatically set the indent of a new line (local to buffer)
@@ -56,7 +58,7 @@ function! Tabstyle_spaces()
   set expandtab
 endfunction
 
-call Tabstyle_tabs()
+" call Tabstyle_tabs()
 
 " Set tabstop, softtabstop and shiftwidth to the same value ( from http://vimcasts.org/episodes/tabs-and-spaces/ )
 command! -nargs=* Stab call Stab()
@@ -138,9 +140,15 @@ endif
 
 " Status Line *****************************************************************
 set showcmd
+set showmode
+set number " show line number
 set ruler " Show ruler
+set laststatus=2 " show the status line all the time§
 "set ch=2 " Make command line two lines high
 "match LongLineWarning '\%120v.*' " Error format when a line is longer than 120
+
+" Useful status information at bottom of screen
+set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
 
 " Line Wrapping ***************************************************************
@@ -149,16 +157,30 @@ set linebreak " Wrap at word
 
 
 " Mappings ********************************************************************
-let mapleader = "," " \ is the leader character
-imap jj <Esc> " Professor VIM says '87% of users prefer jj over esc', jj abrams disagrees
+let mapleader = "," " \ is the default leader character
+imap jj <Esc> "Professor VIM says '87% of users prefer jj over esc', jj abrams disagrees
 imap uu _
 imap hh =>
 imap aa @
 map <S-Enter> O<ESC> " inserts new line without going into insert mode
 map <Enter> o<ESC>
-set fo-=r " do not insert a comment leader after an enter, (no work, fix!!)
-noremap <Leader>c :close<CR>
+"set fo-=r " do not insert a comment leader after an enter, (no work, fix!!)
 noremap <Leader>w :call <SID>StripTrailingWhitespaces()<CR>
+noremap <Leader>i :set list!<CR> " Toggle invisible chars
+noremap <Leader>c :close<CR> " close a window
+map <Leader>f <Leader>lf
+map <Leader>b <Leader>lb
+
+" Tab mappings.
+map <leader>tt :tabnew<cr>
+map <leader>te :tabedit
+map <leader>tc :tabclose<cr>
+map <leader>to :tabonly<cr>
+map <leader>tn :tabnext<cr>
+map <leader>tp :tabprevious<cr>
+map <leader>tf :tabfirst<cr>
+map <leader>tl :tablast<cr>
+map <leader>tm :tabmove
 
 " Cursor Movement *************************************************************
 " Make cursor move by visual lines instead of file lines (when wrapping)
@@ -190,28 +212,25 @@ set sessionoptions=blank,buffers,curdir,folds,help,resize,tabpages,winsize " Set
 " File Stuff ******************************************************************
 filetype plugin indent on
 set fileencodings=utf-8,latin1
-"autocmd FileType html :set filetype=xhtml
-
+autocmd FileType html :set filetype=xhtml
 
 " Misc ************************************************************************
 set backspace=indent,eol,start
-set number " Show line numbers
-set matchpairs+=<:>
+"set matchpairs+=<:>
 set vb t_vb= " Turn off bell, this could be more annoying, but I'm not sure how
 set hidden " Allow hidden unsaved buffers
+set wildmenu
+"set wildmode=list:longest
 
 " Invisible characters ********************************************************
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬
 set list
-noremap ,i :set list!<CR> " Toggle invisible chars
-
 
 " Mouse ***********************************************************************
 "set mouse=a " Enable the mouse
 "behave xterm
 "set selectmode=mouse
-
 
 " Omni Completion *************************************************************
 if has("autocmd")
@@ -226,30 +245,6 @@ endif " has(autocmd)
 " |                              Plug-ins                                     |
 " -----------------------------------------------------------------------------
 
-" NERDTree ********************************************************************
-:noremap <Leader>n :NERDTreeToggle<CR>
-let NERDTreeHijackNetrw=1 " User instead of Netrw when doing an edit /foobar
-let NERDTreeMouseMode=1 " Single click for everything
-
-
-" SnippetsEmu *****************************************************************
-"imap <unique> <C-j> <Plug>Jumper
-"let g:snip_start_tag = "_\."
-"let g:snip_end_tag = "\._"
-"let g:snip_elem_delim = ":"
-"let g:snip_set_textmate_cp = '1' " Tab to expand snippets, not automatically.
-"let g:snippetsEmu_key = "<S-Tab>" " Snippets are activated by Shift+Tab
-
-
-" fuzzyfinder *****************************************************************
-map <Leader>b :FufBuffer<CR>
-map <Leader>f :FufFile<CR>
-let g:fuzzy_ignore = '.o;.obj;.bak;.exe;.pyc;.pyo;.DS_Store;.db'
-
-" diffchanges  ****************************************************************
-noremap <Leader>d :DiffChangesDiffToggle<CR>
-
-
 " -----------------------------------------------------------------------------
 " |                             OS Specific                                   |
 " |                      (GUI stuff goes in gvimrc)                           |
@@ -260,13 +255,9 @@ noremap <Leader>d :DiffChangesDiffToggle<CR>
 "
 "endif
 
-
 " -----------------------------------------------------------------------------
 " |                               Startup                                     |
 " -----------------------------------------------------------------------------
-" Open NERDTree on start
-"autocmd VimEnter * exe 'NERDTree' | wincmd l
-
 
 " -----------------------------------------------------------------------------
 " |                               Host specific                               |
