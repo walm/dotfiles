@@ -1,7 +1,6 @@
 # Utility
 alias reload='source ~/.dotfiles/bash/aliases'
 alias redot='cd ~/.dotfiles && rake install; cd -'
-alias me='mvim'
 alias ea='vim ~/.dotfiles/bash/aliases && reload' # Edit aliases
 alias ee='vim ~/.dotfiles/bash/env'
 alias h='history'

@@ -1,5 +1,5 @@
 export CLICOLOR=1
-export EDITOR="mvim"
+export EDITOR="vim"
 export RI="-f ansi -w 70 -T"
 export PATH=~/bin:/opt/local/bin:/usr/local/narwhal/bin:$PATH
 export NARWHAL_ENGINE=jsc
