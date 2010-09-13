@@ -4,6 +4,8 @@
 
 	git clone git://github.com/walm/dotfiles ~/.dotfiles
 	cd ~/.dotfiles
+	git submodule init
+	git submodule update
 	rake install
     
 This rake task will not replace existing files, but it will replace existing symlinks.
