@@ -7,6 +7,7 @@
 " |   jj = <esc>  Very useful for keeping your hands on the home row          |
 " |   ,n = toggle NERDTree off and on                                         |
 " |                                                                           |
+" |   C-Space = omni completion                                               |
 " |   ,p = fuzzy find files with peepopen (only gui)                          |
 " |   ,f or ,lf = fuzzy find all files                                        |
 " |   ,b or ,lb = fuzzy find in all buffers                                   |
@@ -57,8 +58,6 @@ function! Tabstyle_spaces()
   set tabstop=2
   set expandtab
 endfunction
-
-" call Tabstyle_tabs()
 
 " Set tabstop, softtabstop and shiftwidth to the same value ( from http://vimcasts.org/episodes/tabs-and-spaces/ )
 command! -nargs=* Stab call Stab()
@@ -207,12 +206,26 @@ set directory=~/data/backup/vim/swap
 " Sets path to directory buffer was loaded from
 "autocmd BufEnter * lcd %:p:h
 
-set sessionoptions=blank,buffers,curdir,folds,help,resize,tabpages,winsize " Sets what is saved when you save a session
-
 " File Stuff ******************************************************************
 filetype plugin indent on
 set fileencodings=utf-8,latin1
-autocmd FileType html :set filetype=xhtml
+if has("autocmd")
+  autocmd FileType html :set filetype=xhtml
+
+  " set indent for filetypes
+  autocmd FileType xhtml,javascript,css :Tspace
+
+endif
+
+" Session *********************************************************************
+set sessionoptions=blank,buffers,curdir,folds,help,resize,tabpages,winsize " Sets what is saved when you save a session
+if has("autocmd")
+  " Restore cursor position
+  autocmd BufReadPost *
+    \ if line("'\"") > 1 && line("'\"") <= line("$") |
+    \   exe "normal! g`\"" |
+    \ endif
+endif
 
 " Misc ************************************************************************
 set backspace=indent,eol,start
@@ -220,7 +233,13 @@ set backspace=indent,eol,start
 set vb t_vb= " Turn off bell, this could be more annoying, but I'm not sure how
 set hidden " Allow hidden unsaved buffers
 set wildmenu
+set autochdir " Change root to file
 "set wildmode=list:longest
+
+" Source the vimrc file after saving it (from http://vimcasts.org/episodes/updating-your-vimrc-file-on-the-fly/)
+if has("autocmd")
+  autocmd bufwritepost .vimrc source $MYVIMRC
+endif
 
 " Invisible characters ********************************************************
 " Use the same symbols as TextMate for tabstops and EOLs
@@ -233,8 +252,14 @@ set list
 "set selectmode=mouse
 
 " Omni Completion *************************************************************
+" Remap code completion to Ctrl+Space 
+if has("gui")
+  inoremap <C-Space> <C-x><C-o>
+else
+  inoremap <Nul> <C-x><C-o>
+endif
 if has("autocmd")
-  autocmd FileType html :set omnifunc=htmlcomplete#CompleteTags
+  autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
   autocmd FileType css set omnifunc=csscomplete#CompleteCSS
   autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
   autocmd FileType php set omnifunc=phpcomplete#CompletePHP
