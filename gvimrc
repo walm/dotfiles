@@ -33,9 +33,9 @@ end
 set anti " Antialias font
 "set transparency=15 "in %
 
-" Default size of window
-set columns=179
-set lines=50
+" Default size of window, this is fullscreen on my MacBook 17"
+set columns=235
+set lines=66
 
 " Tab headings 
 set gtl=%t gtt=%F
