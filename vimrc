@@ -59,6 +59,14 @@ function! Tabstyle_spaces()
   set expandtab
 endfunction
 
+function! Tabstyle_spaces4()
+  " Use 4 spaces
+  set softtabstop=4
+  set shiftwidth=4
+  set tabstop=4
+  set expandtab
+endfunction
+
 " Set tabstop, softtabstop and shiftwidth to the same value ( from http://vimcasts.org/episodes/tabs-and-spaces/ )
 command! -nargs=* Stab call Stab()
 function! Stab()
@@ -213,7 +221,7 @@ if has("autocmd")
   autocmd FileType html :set filetype=xhtml
 
   " set indent for filetypes
-  autocmd FileType xhtml,javascript,css :Tspace
+  autocmd FileType xhtml,javascript,css :call Tabstyle_spaces4()
 
 endif
 
