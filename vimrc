@@ -219,6 +219,7 @@ filetype plugin indent on
 set fileencodings=utf-8,latin1
 if has("autocmd")
   autocmd FileType html :set filetype=xhtml
+  autocmd BufReadPost *.json :set filetype=javascript
 
   " set indent for filetypes
   autocmd FileType xhtml,javascript,css :call Tabstyle_spaces4()
