@@ -50,3 +50,7 @@ WORDCHARS=${WORDCHARS//[&=\/;\!#%\{]}
 
 # Set vi bindings in shell
 bindkey -v
+
+# Re-add Ctrl-R
+bindkey -M viins '^r' history-incremental-search-backward
+
