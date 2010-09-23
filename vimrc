@@ -17,14 +17,13 @@
 " |   ,i = toggle invisibles                                                  |
 " |   ,h = new horizontal window                                              |
 " |   ,v = new vertical window                                                |
-" |                                                                           |
-" |   hh = inserts '=>'                                                       |
-" |   aa = inserts '@'                                                        |
+" |   ,ln = toggle linenumbers                                                |
+" |   ,rn = toggle relativenumbers (great for motion commans)                 |
 " |                                                                           |
 " |   enter and shift-enter = adds a new line after/before the current line   |
 " |                                                                           |
 " |   Ttabs = set tab to real tabs                                            |
-" |   Tspaces = set tab to 2 spaces                                           |
+" |   Tspaces = set tab to 2 spaces (default)                                 |
 " |   Stab = display or change tab/spacing settings                           |
 " |                                                                           |
 " | Put machine/user specific settings in ~/.vimrc.local                      |
@@ -33,6 +32,7 @@
 set nocompatible
 
 " load plugins with pathogen
+filetype off
 silent! call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
@@ -66,6 +66,9 @@ function! Tabstyle_spaces4()
   set tabstop=4
   set expandtab
 endfunction
+
+" default to 2 spaces Indenting
+call Tabstyle_spaces()
 
 " Set tabstop, softtabstop and shiftwidth to the same value ( from http://vimcasts.org/episodes/tabs-and-spaces/ )
 command! -nargs=* Stab call Stab()
@@ -110,6 +113,7 @@ endfunction
 
 " Scrollbars ******************************************************************
 set sidescrolloff=2
+set scrolloff=3
 set numberwidth=4
 
 
@@ -140,7 +144,6 @@ if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   set background=dark
   syntax on " syntax highlighting
   colorscheme ir_black
-  syntax on
   set hlsearch " highlight search
 endif
 
@@ -148,11 +151,10 @@ endif
 " Status Line *****************************************************************
 set showcmd
 set showmode
-set number " show line number
-set ruler " Show ruler
+"set number " show line number
+set relativenumber " show relative linenumbers for easy motion commands
+set ruler " show ruler
 set laststatus=2 " show the status line all the time§
-"set ch=2 " Make command line two lines high
-"match LongLineWarning '\%120v.*' " Error format when a line is longer than 120
 
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
@@ -165,18 +167,19 @@ set linebreak " Wrap at word
 
 " Mappings ********************************************************************
 let mapleader = "," " \ is the default leader character
-imap jj <Esc> "Professor VIM says '87% of users prefer jj over esc', jj abrams disagrees
-imap uu _
-imap hh =>
-imap aa @
-map <S-Enter> O<ESC> " inserts new line without going into insert mode
+imap jj <Esc> " Professor VIM says '87% of users prefer jj over esc', jj abrams disagrees
+map <S-Enter> O<ESC> " Inserts new line without going into insert mode
 map <Enter> o<ESC>
-"set fo-=r " do not insert a comment leader after an enter, (no work, fix!!)
-noremap <Leader>w :call <SID>StripTrailingWhitespaces()<CR>
-noremap <Leader>i :set list!<CR> " Toggle invisible chars
-noremap <Leader>c :close<CR> " close a window
-map <Leader>f <Leader>lf
-map <Leader>b <Leader>lb
+map <leader><space> :noh<cr> " Remove highlight from search
+nnoremap <leader>a :Ack
+noremap <leader>w :call <SID>StripTrailingWhitespaces()<cr>
+noremap <leader>i :set list!<cr>
+noremap <leader>ln :set number!<cr>
+noremap <leader>rn :set relativenumber!<cr>
+
+map <leader>c :close<cr>
+map <leader>f <leader>lf
+map <leader>b <leader>lb
 
 " Tab mappings.
 map <leader>tt :tabnew<cr>
@@ -190,14 +193,19 @@ map <leader>tl :tablast<cr>
 map <leader>tm :tabmove
 
 " Cursor Movement *************************************************************
-" Make cursor move by visual lines instead of file lines (when wrapping)
-map <up> gk
+" Use hjkl keys (but we allow arrows in insert)
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+
 map k gk
-imap <up> <C-o>gk
-map <down> gj
 map j gj
-imap <down> <C-o>gj
 map E ge
+imap <up> <C-o>gk
+imap <down> <C-o>gj
+imap <left> <C-o>h
+imap <right> <C-o>l
 
 
 " Directories *****************************************************************
@@ -222,7 +230,7 @@ if has("autocmd")
   autocmd BufReadPost *.json :set filetype=javascript
 
   " set indent for filetypes
-  autocmd FileType xhtml,javascript,css :call Tabstyle_spaces4()
+  autocmd FileType xhtml,javascript,css :call Tabstyle_spaces()
 
 endif
 
@@ -243,9 +251,9 @@ set vb t_vb= " Turn off bell, this could be more annoying, but I'm not sure how
 set hidden " Allow hidden unsaved buffers
 set wildmenu
 set autochdir " Change root to file
-"set wildmode=list:longest
+set wildmode=list:longest
 
-" Source the vimrc file after saving it (from http://vimcasts.org/episodes/updating-your-vimrc-file-on-the-fly/)
+"Source the vimrc file after saving it (from http://vimcasts.org/episodes/updating-your-vimrc-file-on-the-fly/)
 if has("autocmd")
   autocmd bufwritepost .vimrc source $MYVIMRC
 endif

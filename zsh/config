@@ -48,4 +48,5 @@ LISTMAX=0           # ask to complete if top of list would scroll off screen
 # Make CTRL-W delete after other chars, not just spaces
 WORDCHARS=${WORDCHARS//[&=\/;\!#%\{]}
 
-bindkey -e
+# Set vi bindings in shell
+bindkey -v
