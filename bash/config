@@ -38,6 +38,9 @@ BMAGENTA='\e[45m'
 BCYAN='\e[46m'
 BWHITE='\e[47m'
 
+# Use vi bindings in shell
+set -o vi
+
 # Use vcprompt if exists (install with vcprompt-install)
 if [[ -a ~/bin/vcprompt ]]; then
     PS1="\n\u:\w \[$MAGENTA\]\$(vcprompt) \n→\[$NO_COLOR\] "
