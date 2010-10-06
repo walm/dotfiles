@@ -49,3 +49,6 @@
 [submodule "vim/bundle/vim-coffe-script"]
 	path = vim/bundle/vim-coffe-script
 	url = http://github.com/kchmck/vim-coffee-script.git
+[submodule "vim/bundle/jsbeautify"]
+	path = vim/bundle/jsbeautify
+	url = git://github.com/vim-scripts/jsbeautify.git

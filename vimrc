@@ -19,6 +19,7 @@
 " |   ,v = new vertical window                                                |
 " |   ,ln = toggle linenumbers                                                |
 " |   ,rn = toggle relativenumbers (great for motion commans)                 |
+" |   ,jb = jsbeautify with retab!                                            |
 " |                                                                           |
 " |   enter and shift-enter = adds a new line after/before the current line   |
 " |                                                                           |
@@ -180,6 +181,7 @@ noremap <leader>rn :set relativenumber!<cr>
 map <leader>c :close<cr>
 map <leader>f <leader>lf
 map <leader>b <leader>lb
+noremap <silent> <leader>jb :call g:Jsbeautify() <Bar>retab!<cr>
 
 " Tab mappings.
 map <leader>tt :tabnew<cr>
