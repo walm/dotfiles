@@ -2,11 +2,17 @@
 
 ## Install:
 
-	git clone git://github.com/walm/dotfiles ~/.dotfiles
-	cd ~/.dotfiles
-	git submodule init
-	git submodule update
-	rake install
+Oneliner
+
+  curl -L "http://github.com/walm/dotfiles/raw/master/install.sh" | bash
+
+or
+
+  git clone git://github.com/walm/dotfiles ~/.dotfiles
+  cd ~/.dotfiles
+  git submodule init
+  git submodule update
+  rake install
     
 This rake task will not replace existing files, but it will replace existing symlinks.
 The dotfiles will be symlinked, e.g. `~/.bash_profile` symlinked to `~/.dotfiles/bash_profile`.
@@ -16,7 +22,7 @@ The dotfiles will be symlinked, e.g. `~/.bash_profile` symlinked to `~/.dotfiles
 I'm running Mac OS X and primarily use zsh, but this includes some bash files as well. 
 Switch to zsh with
 
-	chsh -s /bin/zsh
+  chsh -s /bin/zsh
 
 ## <.replace>
 
