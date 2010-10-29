@@ -43,9 +43,6 @@
 [submodule "vim/bundle/vim-rooter"]
 	path = vim/bundle/vim-rooter
 	url = http://github.com/airblade/vim-rooter.git
-[submodule "vim/bundle/rainbow-parenthsis"]
-	path = vim/bundle/rainbow-parenthsis
-	url = http://github.com/vim-scripts/Rainbow-Parenthsis-Bundle.git
 [submodule "vim/bundle/vim-coffe-script"]
 	path = vim/bundle/vim-coffe-script
 	url = http://github.com/kchmck/vim-coffee-script.git
