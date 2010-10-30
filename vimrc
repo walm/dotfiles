@@ -219,7 +219,7 @@ set nowritebackup
 set history=50 " keep 50 lines of command line history
 
 " Set Swap directory
-set directory=~/data/backup/vim/swap
+" set directory=~/data/backup/vim/swap
 
 " Sets path to directory buffer was loaded from
 "autocmd BufEnter * lcd %:p:h
