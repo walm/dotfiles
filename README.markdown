@@ -1,30 +1,32 @@
-# Walm's dotfiles
+My dotfiles
+===========
 
-## Install:
+Installation
+------------
 
-Oneliner
+Easy way
 
-  curl -L "http://github.com/walm/dotfiles/raw/master/install.sh" | bash
+    curl -L "https://github.com/walm/dotfiles/raw/master/setup.sh" | bash
 
 or
 
-  git clone git://github.com/walm/dotfiles ~/.dotfiles
-  cd ~/.dotfiles
-  git submodule init
-  git submodule update
-  rake install
+    git clone git://github.com/walm/dotfiles.git ~/.dotfiles
+    cd ~/.dotfiles
+    rake install
     
 This rake task will not replace existing files, but it will replace existing symlinks.
 The dotfiles will be symlinked, e.g. `~/.bash_profile` symlinked to `~/.dotfiles/bash_profile`.
 
-## Environment
+Environment
+-----------
 
 I'm running Mac OS X and primarily use zsh, but this includes some bash files as well. 
 Switch to zsh with
 
   chsh -s /bin/zsh
 
-## <.replace>
+<.replace>
+----------
 
 If e.g. `~/.dotfiles/gitconfig` contains `<.replace github-token>` then 
 
@@ -34,7 +36,8 @@ If e.g. `~/.dotfiles/gitconfig` contains `<.replace github-token>` then
 So if you want to make changes to that file, make them in `~/dotfiles/gitconfig` and then run `redot` (same as `rake install`).
 Changes to symlinked files without `<.replace>` bits do not require a `redot` on every change as they're symlinked.
 
-### Inspired by
+Inspired by
+-----------
 
 [ryanb/dotfiles](http://github.com/ryanb/dotfiles/)
 
