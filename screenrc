@@ -1,3 +1,3 @@
 startup_message off
 ignorecase yes
-
+defscrollback 1024
