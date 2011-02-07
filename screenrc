@@ -1,3 +1,6 @@
 startup_message off
 ignorecase on
 defscrollback 1024
+
+# Paste - use 'P' instead of ']':
+bind P paste .
