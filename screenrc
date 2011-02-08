@@ -1,6 +1,10 @@
 startup_message off
+vbell off
+autodetach on
 ignorecase on
-defscrollback 1024
+defscrollback 10000
+hardstatus alwayslastline
+hardstatus string '%{= kg}[ %{G} Screens %{g}][%= %{= kw}%?%-Lw%?%{r} (%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{W} %y-%m-%d %c %{g}]'
 
 # Paste - use 'P' instead of ']':
 bind P paste .
