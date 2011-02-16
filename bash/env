@@ -1,6 +1,7 @@
 export CLICOLOR=1
 export EDITOR="vim"
 export RI="-f ansi -w 70 -T"
+export RACK_ENV="development"
 export PATH=~/bin:/opt/local/bin:/usr/local/narwhal/bin:/Developer/Android:$PATH
 export NARWHAL_ENGINE=jsc
 export CAPP_BUILD=~/src/cappuccino/build
