@@ -27,7 +27,7 @@ alias ll='ls -l'
 alias la='ls -A'
  
 # git
-alias gl='git log'
+alias gl='git log --color'
 alias gs='git status'
 alias gp='git push'
 alias gd='git difftool'
