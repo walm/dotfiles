@@ -4,20 +4,25 @@ setopt prompt_subst
 
 # display current rvm
 if [[ -a ~/.rvm/bin/rvm-prompt ]]; then
-RPROMPT='%{$fg[green]%}$(~/.rvm/bin/rvm-prompt i v g) %{$reset_color%}'
+  RPROMPT='%{$fg[green]%}$(~/.rvm/bin/rvm-prompt i v g) %{$reset_color%}'
 else
-RPROMPT='%{$fg[green]%}$(/usr/local/rvm/bin/rvm-prompt i v g) %{$reset_color%}'
+  # rvm is system installed
+  RPROMPT='%{$fg[green]%}$(/usr/local/rvm/bin/rvm-prompt i v g) %{$reset_color%}'
 fi
 
 # Use vcprompt if exists (install with vcprompt-install)
 if [[ -a ~/bin/vcprompt ]]; then
+
 PROMPT='
 %~ (%{$fg[cyan]%}%n%{$reset_color%} @ %{$fg[green]%}%m%{$reset_color%}%) %{$fg_bold[magenta]%}$(vcprompt)
 → %{$reset_color%}'
+
 else
+
 PROMPT='
 %~ (%{$fg[cyan]%}%n%{$reset_color%} @ %{$fg[green]%}%m%{$reset_color%}%)
 → %{$reset_color%}'    
+
 fi
 
 #############################

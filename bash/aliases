@@ -15,9 +15,9 @@ alias ..='cd ..'
 alias cdd='cd -'
 
 # Create a dir and cd it
-function take() { 
-    mkdir -p "$1"
-    cd "$1" 
+function take() {
+  mkdir -p "$1"
+  cd "$1"
 }
 
 # ls
@@ -25,7 +25,7 @@ alias ls='ls -F'
 alias l='ls -lAh'
 alias ll='ls -l'
 alias la='ls -A'
- 
+
 # git
 alias gl='git log --color'
 alias gs='git status'
@@ -39,12 +39,12 @@ alias gb='git branch'
 alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
 
 # Commit pending changes and quote all args as message
-function gg() { 
-    git commit -v -a -m "$*"
+function gg() {
+  git commit -v -a -m "$*"
 }
 
 # Ruby
 alias r="rake"
- 
+
 # commands starting with % for pasting from web
 alias %=' '

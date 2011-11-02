@@ -4,35 +4,35 @@ My dotfiles
 Installation
 ------------
 
-Easy way
-
-    curl -L "https://github.com/walm/dotfiles/raw/master/setup.sh" | bash
+    curl -L "https://raw.github.com/walm/dotfiles/master/setup.sh" | bash
 
 or
 
     git clone git://github.com/walm/dotfiles.git ~/.dotfiles
     cd ~/.dotfiles
     rake install
-    
-This rake task will not replace existing files, but it will replace existing symlinks.
+
 The dotfiles will be symlinked, e.g. `~/.bash_profile` symlinked to `~/.dotfiles/bash_profile`.
+
+The rake task will not replace existing files, but it will replace existing symlinks.
 
 Environment
 -----------
 
-I'm running Mac OS X and primarily use zsh, but this includes some bash files as well. 
-Switch to zsh with
+I'm on Mac OS X and zsh, but this includes bash config as well.
+
+Mac is default to bash, bt switch to zsh by
 
   chsh -s /bin/zsh
 
 <.replace>
 ----------
 
-If e.g. `~/.dotfiles/gitconfig` contains `<.replace github-token>` then 
+If e.g. `~/.dotfiles/gitconfig` contains `<.replace github-token>` then
 
- * that bit will be replaced with the contents of `~/.github-token` 
+ * that bit will be replaced with the contents of `~/.github-token`
  * the resulting file will be written to `~/.gitconfig` directly, not symlinked.
- 
+
 So if you want to make changes to that file, make them in `~/dotfiles/gitconfig` and then run `redot` (same as `rake install`).
 Changes to symlinked files without `<.replace>` bits do not require a `redot` on every change as they're symlinked.
 

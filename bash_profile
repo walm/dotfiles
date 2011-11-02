@@ -1,11 +1,5 @@
-if [ -f ~/.bashrc ];
-then
-  . ~/.bashrc
-fi
-if [[ -s ~/.rvm/scripts/rvm ]] ; then . ~/.rvm/scripts/rvm ; fi
-if [[ -s /usr/local/rvm/scripts/rvm ]]; then . /usr/local/rvm/scripts/rvm ; fi
-[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
-
-if [ -f `brew --prefix`/etc/autojump ]; then
-  . `brew --prefix`/etc/autojump
-fi
+[[ -s ~/.bashrc ]]                            && . ~/.bashrc
+[[ -s ~/.rvm/scripts/rvm ]]                   && . ~/.rvm/scripts/rvm
+[[ -s /usr/local/rvm/scripts/rvm ]]           && . /usr/local/rvm/scripts/rvm
+[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && . $HOME/.tmuxinator/scripts/tmuxinator
+[[ -f `brew --prefix`/etc/autojump ]]         && . `brew --prefix`/etc/autojump

@@ -1,7 +1,7 @@
 . ~/.zsh/config
 . ~/.zsh/completion
 . ~/.zsh/aliases
-if [[ -s ~/.rvm/scripts/rvm ]] ; then . ~/.rvm/scripts/rvm ; fi
-if [[ -s /usr/local/rvm/scripts/rvm ]]; then . /usr/local/rvm/scripts/rvm ; fi
-if [[ -s ~/.tmuxinator/scripts/tmuxinator ]] ; then . ~/.tmuxinator/scripts/tmuxinator ; fi
-if [ -f `brew --prefix`/etc/autojump ]; then . `brew --prefix`/etc/autojump ; fi
+[[ -s ~/.rvm/scripts/rvm ]]               && . ~/.rvm/scripts/rvm
+[[ -s /usr/local/rvm/scripts/rvm ]]       && . /usr/local/rvm/scripts/rvm
+[[ -s ~/.tmuxinator/scripts/tmuxinator ]] && . ~/.tmuxinator/scripts/tmuxinator
+[[ -f `brew --prefix`/etc/autojump ]]     && . `brew --prefix`/etc/autojump

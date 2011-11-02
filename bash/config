@@ -43,7 +43,7 @@ set -o vi
 
 # Use vcprompt if exists (install with vcprompt-install)
 if [[ -a ~/bin/vcprompt ]]; then
-    PS1="\n\u:\w \[$MAGENTA\]\$(vcprompt) \n→\[$NO_COLOR\] "
+  PS1="\n\u:\w \[$MAGENTA\]\$(vcprompt) \n→\[$NO_COLOR\] "
 else
-    PS1="\n\u:\w \[$MAGENTA\]\n→\[$NO_COLOR\] "
+  PS1="\n\u:\w \[$MAGENTA\]\n→\[$NO_COLOR\] "
 fi
