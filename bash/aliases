@@ -3,11 +3,11 @@ alias reload='source ~/.dotfiles/bash/aliases'
 alias redot='cd ~/.dotfiles && rake install; cd -'
 alias ea='vim ~/.dotfiles/bash/aliases && reload' # Edit aliases
 alias ee='vim ~/.dotfiles/bash/env'
-alias e='mvim --remote'
+alias e='vim'
 alias h='history'
 
 # Processes
-alias tu='top -o cpu' # cpu
+alias tu='top -o cpu'   # cpu
 alias tm='top -o vsize' # memory
 
 # cd
@@ -26,16 +26,37 @@ alias l='ls -lAh'
 alias ll='ls -l'
 alias la='ls -A'
 
-# git
-alias g='git'
-
-# Commit pending changes and quote all args as message
-function gg() {
-  git commit -v -a -m "$*"
-}
-
 # Ruby
 alias r="rake"
 
 # commands starting with % for pasting from web
 alias %=' '
+
+# network
+alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
+alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias flush="dscacheutil -flushcache" # Flush DNS cache
+alias ping="ping -c 5" # ping 5 times ‘by default’
+
+# some utils
+alias ql="qlmanage -p 2>/dev/null" # preview a file using QuickLook
+
+# some quick service start/stop alias
+
+# nginx
+alias nginx-reload="sudo /usr/local/sbin/nginx -s reload"
+alias nginx-stop="sudo /usr/local/sbin/nginx -s stop"
+alias nginx-start="sudo /usr/local/sbin/nginx -g deamon=off;"
+alias nginx-restart="nginx-stop; nginx-start"
+
+# mysql
+alias mysql-start="mysql.server start"
+alias mysql-stop="mysql.server stop"
+alias mysql-restart="mysql-stop; mysql-start"
+
+# postgresql
+alias psql-start="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
+alias psql-stop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
+alias psql-restart="psql-stop; psql-start"
+
+
