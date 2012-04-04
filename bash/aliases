@@ -29,6 +29,9 @@ alias la='ls -A'
 # Ruby
 alias r="rake"
 
+# PHP
+alias tail-php-error="tail -f `brew --prefix php`/var/log/php_errors.log"
+
 # commands starting with % for pasting from web
 alias %=' '
 
