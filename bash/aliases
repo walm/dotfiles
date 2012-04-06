@@ -62,4 +62,6 @@ alias psql-start="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/s
 alias psql-stop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
 alias psql-restart="psql-stop; psql-start"
 
+# mongo
+alias mongo-start="mongod run --config /usr/local/Cellar/mongodb/2.0.4-x86_64/mongod.conf --rest"
 
