@@ -1,5 +1,5 @@
 # Based on rakefile from http://github.com/henrik/dotfiles
-IGNORE_FILES = ['Rakefile', 'README.markdown', '.gitignore', 'ssh',
+IGNORE_FILES = ['Rakefile', 'README.markdown', '.gitignore', 'ssh', 'fonts',
                 'setup.sh', 'touch-to-trigger-sync', 'vcprompt-install']
 
 def error(text) STDERR.puts "!  #{text}" end

@@ -1,8 +1,14 @@
 autoload -U colors
 colors
+
+# vi bindings in shell
+bindkey -v
+
+#############################
+# Prompt
 setopt prompt_subst
 
-# display current rvm
+# display current rvm in right prompt
 if [[ -a ~/.rvm/bin/rvm-prompt ]]; then
   RPROMPT='%{$fg[green]%}$(~/.rvm/bin/rvm-prompt i v g) %{$reset_color%}'
 else
@@ -25,11 +31,13 @@ PROMPT='
 
 fi
 
-#############################
-# Other Options
 
+
+#############################
+# Options
 # setopt PRINT_EXIT_VALUE
 
+setopt AUTO_CD
 setopt CORRECT
 setopt CORRECTALL
 
@@ -60,9 +68,15 @@ LISTMAX=0           # ask to complete if top of list would scroll off screen
 # Make CTRL-W delete after other chars, not just spaces
 WORDCHARS=${WORDCHARS//[&=\/;\!#%\{]}
 
-# Set vi bindings in shell
-bindkey -v
+#############################
+# Keybindings
+
+# vi style incremental search
+bindkey '^r' history-incremental-search-backward
+bindkey '^s' history-incremental-search-forward
+bindkey '^p' history-search-backward
+bindkey '^n' history-search-forward  
 
 # Re-add Ctrl-R
-bindkey -M viins '^r' history-incremental-search-backward
+# bindkey -M viins '^r' history-incremental-search-backward
 

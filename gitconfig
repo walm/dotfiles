@@ -1,6 +1,6 @@
 [user]
-  name = Andreas Wålm
-  email = andreas@walm.net
+	name = Andreas Wålm
+	email = andreas@walm.net
 [difftool "Kaleidoscope"]
   cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
 [difftool]
@@ -29,6 +29,8 @@
   la = !git l --all
   fa = fetch --all
   pom = push origin master
+  pbm = push bitbucket master
+  pbd = push bitbucket develop
   ds = diff --stat=160,120
   dh1 = diff HEAD~1
   a = add
@@ -38,6 +40,6 @@
 [status]
   color = true
 [mergetool]
-  keepBackup = true
+	keepBackup = true
 [format]
   pretty=format:%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset

@@ -26,6 +26,9 @@ alias l='ls -lAh'
 alias ll='ls -l'
 alias la='ls -A'
 
+# Git
+alias g="git"
+
 # Ruby
 alias r="rake"
 
