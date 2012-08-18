@@ -8,3 +8,10 @@ compinit
 
 # pasting with tabs doesn't perform completion
 #zstyle ':completion:*' insert-tab pending
+
+
+# Mux
+_mux_comp() {
+  reply=(`mux list |sed '/tmuxinator/d' |sed -e 's/^[ ]*//'`) 
+}
+compctl -K _mux_comp mux
