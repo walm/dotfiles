@@ -15,3 +15,9 @@ _mux_comp() {
   reply=(`mux list |sed '/tmuxinator/d' |sed -e 's/^[ ]*//'`) 
 }
 compctl -K _mux_comp mux
+
+# T as in Timetrap
+_timetrap_comp() {
+  reply=(`t s |sed "/Timesheet/d" |sed -e 's/[ ]//' |colrm 28`)  
+}
+compctl -K _timetrap_comp t
