@@ -3,6 +3,9 @@
 # similar to method name colors leading to a "soup"
 # These colors are optimized for use with Solarized scheme 
 # for your terminal
+
+# vi mode in pry
+Readline.vi_editing_mode
 Pry.config.ls.separator = "\n" # new lines between methods
 Pry.config.ls.heading_color = :magenta
 Pry.config.ls.public_method_color = :green
