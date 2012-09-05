@@ -21,3 +21,6 @@ _timetrap_comp() {
   reply=(`t s |sed "/Timesheet/d" |sed -e 's/[ ]//' |colrm 28`)  
 }
 compctl -K _timetrap_comp t
+
+# Git flow
+source ~/.zsh/git-flow-completion.zsh
