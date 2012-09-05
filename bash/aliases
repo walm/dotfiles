@@ -28,9 +28,13 @@ alias la='ls -A'
 
 # Git
 alias g="git"
+alias gs="git st"
+alias gr="git r"
+alias ga="git aa"
+alias gc="git ci -m"
 
 # Ruby
-alias r="rake"
+alias r="bundle exec rake"
 
 # PHP
 alias tail-php-error="tail -f `brew --prefix php`/var/log/php_errors.log"
