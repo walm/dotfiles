@@ -20,6 +20,11 @@ function take() {
   cd "$1"
 }
 
+# Send a Growl notification
+function growl() {
+  growlnotify -m "$1" -t "Shell notify"
+}
+
 # ls
 alias ls='ls -F'
 alias l='ls -lAh'
