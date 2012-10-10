@@ -39,7 +39,7 @@ alias ga="git aa"
 alias gc="git ci -m"
 
 # Ruby
-alias r="bundle exec rake"
+alias r="rake"
 
 # PHP
 alias tail-php-error="tail -f `brew --prefix php`/var/log/php_errors.log"
