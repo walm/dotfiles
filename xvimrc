@@ -1,0 +1,10 @@
+set ignorecase
+set wrapscan
+set guioptions=r
+
+nmap ,n :xccmd toggleNavigatorsVisibility<cr>
+nmap ,f :xccmd openQuickly<cr>
+nmap ,b :xccmd showPreviousHistoryMenu<cr>
+nmap ,m :xccmd showDocumentItemsMenu<cr>
+nmap ,i :xccmd toggleInvisibleCharactersShown<cr>
+
