@@ -2,6 +2,7 @@ set ignorecase
 set wrapscan
 set guioptions=r
 
+nmap ,A :xccmd jumpToNextCounterpart<cr>
 nmap ,n :xccmd toggleNavigatorsVisibility<cr>
 nmap ,f :xccmd openQuickly<cr>
 nmap ,b :xccmd showPreviousHistoryMenu<cr>
