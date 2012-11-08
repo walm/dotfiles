@@ -1,0 +1,4 @@
+# collapse all thread in ML folders
+folder-hook (rubymotion) "exec collapse-all"
+
+# vim: ft=muttrc

@@ -1,0 +1,52 @@
+##################################################
+# General definitions
+##################################################
+
+[DEFAULT]
+
+[general]
+#metadata = ~/.offlineimap
+accounts = Gmail
+pythonfile = ~/.mutt/scripts/offlineimap-helpers.py
+
+
+##################################################
+# Accounts
+##################################################
+
+[Account Gmail]
+localrepository = Gmail-Local
+remoterepository = Gmail-Remote
+presynchook = ~/.mutt/scripts/beforesync
+postsynchook = ~/.mutt/scripts/aftersync
+status_backend = sqlite
+# ~5 years back
+maxage = 1825
+
+
+
+[Repository Gmail-Local]
+type = Maildir
+localfolders = ~/.mail/gmail
+nametrans = nt_local
+
+
+
+[Repository Gmail-Remote]
+type = Gmail
+remoteuser = andreas@walm.net
+remotepasseval = get_password('smtp.gmail.com')
+maxconnections = 3
+nametrans = nt_remote
+
+folderfilter = lambda foldername: foldername not in [
+                                    '[Gmail]/All Mail', 
+                                    '[Gmail]/Trash',
+                                    '[Gmail]/Spam',
+                                    'devcore',
+                                    'devcore_import',
+                                    'konsultfabriken']
+
+# this might change, but offlineimap will then output it
+cert_fingerprint = 6d1b5b5ee0180ab493b71d3b94534b5ab937d042
+

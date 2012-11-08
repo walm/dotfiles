@@ -2,3 +2,4 @@
 github-token
 ssh
 touch-to-trigger-sync
+*.pyc

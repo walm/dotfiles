@@ -1,0 +1,11 @@
+  set from          = "andreas@walm.net"
+  set sendmail      = "/usr/local/bin/msmtp -a gmail"
+  set sendmail_wait = -1 # Don't wait around for sendmail.
+  set mbox          = "all_mail"
+unset record
+  set postponed     = "drafts"
+
+# alternate "me"s
+alternates "andreas@walm.net|andreas@walm.se|andreas@jajdo.com|andreas@walmracing.se"
+
+# vim: ft=muttrc
