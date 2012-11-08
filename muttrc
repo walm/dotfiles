@@ -51,7 +51,7 @@ unset wait_key                                                    # don't show "
   set alias_format        = "%4n %t %-20a %r"
   set date_format         = "%Y-%m-%d at %H:%M"
   set forward_format      = "Fwd: %s"                             # format for subject when forwarding
-  set index_format        = "%3C %Z %[!%d/%m %H:%m] %?X?₪& ? %-17.17F [%g] %s"
+  set index_format        = "%3C %Z %[!%d/%m %H:%m] %?X?₪& ? %-17.17F [%g ] %s"
   set quote_regexp        = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
   set reply_regexp        = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
   set status_format       = "-%r- %f %m%?n? [+%n]?%?d? [-%d]?%?t? [*%t]? %?p?───/ %p waiting to send /?─%>─(%P)───"

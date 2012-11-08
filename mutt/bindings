@@ -50,7 +50,7 @@ macro index,pager A "<modify-labels-then-hide>+archive -inbox\n<save-message>=al
 
 # like gmail I what to jump
 macro index,pager gi "<change-folder>!\n" "go to inbox"
-macro index,pager gs "<change-vfolder>=Starred\n" "go to starred messages"
 macro index,pager gd "<change-folder>=drafts\n" "go to drafts"
+macro index,pager gf "<change-vfolder>\n" "go to folder"
 
 # vim: ft=muttrc
