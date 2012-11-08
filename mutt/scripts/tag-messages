@@ -4,13 +4,13 @@ set -e
 # tag based on folder name
 for f in `ls`; do
   f=$f:gs/\///
-  notmuch tag +$f folder:$f and not tag:$f
+  /usr/local/bin/notmuch tag +$f folder:$f and not tag:$f
 done
 
 # fix special tags
-notmuch tag -starred tag:starred
-notmuch tag +★ folder:starred and not tag:★
-notmuch tag -INBOX tag:INBOX
-notmuch tag -important tag:important
-notmuch tag -inbox tag:inbox and not folder:INBOX
+/usr/local/bin/notmuch tag -starred tag:starred
+/usr/local/bin/notmuch tag +★ folder:starred and not tag:★
+/usr/local/bin/notmuch tag -INBOX tag:INBOX
+/usr/local/bin/notmuch tag -important tag:important
+/usr/local/bin/notmuch tag -inbox tag:inbox and not folder:INBOX
 

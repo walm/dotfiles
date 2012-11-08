@@ -2,7 +2,7 @@
 # This script runs in postsynchook of offlineimap
 set -e
 
-notmuch new
+/usr/local/bin/notmuch new
 ~/.mutt/scripts/tag-messages
 
 # TODO: check nr of new messages in inbox and do a growl or something
