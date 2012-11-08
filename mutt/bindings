@@ -43,6 +43,7 @@ macro index ,r "<tag-pattern>all\n<tag-prefix><clear-flag>N<untag-pattern>all\n"
 macro index ,R "<collapse-all><tag-pattern>all\n<tag-prefix><clear-flag>N<untag-pattern>all\n<collapse-all>" "mark all as read (collapsed)"
 macro index ,v "<collapse-thread>" "collapse/uncollapse thread"
 macro index ,V "<collapse-all>"    "collapse/uncollapse all threads"
+macro index,pager \Cb "<pipe-message>urlview\n" "list and open url's in message"
 
 macro index,pager S "<modify-labels>+★ \n<copy-message>=starred\n<sync-mailbox>" "starred message"
 macro index,pager A "<modify-labels-then-hide>+archive -inbox\n<save-message>=all_mail\n<sync-mailbox>" "archive message"
