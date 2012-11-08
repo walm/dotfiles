@@ -36,9 +36,9 @@ bind index ,f vfolder-from-query
 # macros
 macro index,pager ,n "<enter-command>toggle sidebar_visible\n" "toggle sidebar visible"
 macro index,pager ,N "<sidebar-toggle>\n" "toggle sidebar"
+macro index,pager ,z "<sync-mailbox>\n<shell-escape>~/.mutt/scripts/mailrun\n" "syncing..."
 macro index ,m "<change-vfolder>?\n" "show folders"
 macro index ,p "<pipe-message>cat > ~/" "save message as"
-macro index ,z "<sync-mailbox>\n<shell-escape>~/.mutt/scripts/mailrun\n" "sync IMAP"
 macro index ,r "<tag-pattern>all\n<tag-prefix><clear-flag>N<untag-pattern>all\n" "mark all as read"
 macro index ,R "<collapse-all><tag-pattern>all\n<tag-prefix><clear-flag>N<untag-pattern>all\n<collapse-all>" "mark all as read (collapsed)"
 macro index ,v "<collapse-thread>" "collapse/uncollapse thread"
@@ -46,7 +46,7 @@ macro index ,V "<collapse-all>"    "collapse/uncollapse all threads"
 macro index,pager \Cb "<pipe-message>urlview\n" "list and open url's in message"
 
 macro index,pager S "<modify-labels>+★ \n<copy-message>=starred\n<sync-mailbox>" "starred message"
-macro index,pager A "<modify-labels-then-hide>+archive -inbox\n<save-message>=all_mail\n<sync-mailbox>" "archive message"
+macro index,pager A "<modify-labels>+archive -inbox\n<save-message>=all_mail\n<sync-mailbox>" "archive message"
 
 # like gmail I what to jump
 macro index,pager gi "<change-folder>!\n" "go to inbox"
