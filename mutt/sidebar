@@ -4,26 +4,23 @@
   # set sidebar_format      = "%B"
 
 # imap folders
-mailboxes +INBOX      \
-          "starred"   \
-          "drafts"    \
-          "sent_mail" \
+mailboxes +INBOX     \
+          +starred   \
+          +drafts    \
+          +sent_mail \
           \
-          "@Receipts" \
-          "@See"      \
+          +@Receipts \
+          +@See"     \
 
 # virtual folders
 virtual-mailboxes \
-    "★ Starred"   "notmuch://?query=tag:★ " \
+    "❒ INBOX"     "notmuch://?query=folder:inbox" \
+    "★ Starred"   "notmuch://?query=folder:starred" \
     "☼ Last 24h"  "notmuch://?query=`date -v-1d +%s`..`date +%s`" \
     " "           "notmuch://?query=tag:dontexists1" \
     \
-    "Drafts"      "notmuch://?query=folder:drafts" \
-    "Sent mail"   "notmuch://?query=folder:sent" \
-    " "           "notmuch://?query=tag:dontexists2" \
-    \
-    "@Receipts"   "notmuch://?query=tag:@Receipts OR folder:@Receipts" \
-    "@See"        "notmuch://?query=tag:@See OR folder:@See" \
+    "@Receipts"   "notmuch://?query=tag:@Receipts" \
+    "@See"        "notmuch://?query=tag:@See" \
     "Archive"     "notmuch://?query=tag:archive" \
     " "           "notmuch://?query=tag:dontexists3" \
     \

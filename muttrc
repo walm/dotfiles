@@ -1,5 +1,7 @@
 # Inspired by Patrick Brisbin's https://github.com/pbrisbin/mutt-config/blob/master/muttrc
 #
+# Using mutt from https://github.com/karelzak/mutt-kz
+#
 
 # directories and commands
   set alias_file          = ~/.mutt/aliases                       # alias file
@@ -14,12 +16,11 @@ unset signature
   set mbox_type           = Maildir                               # mailbox type
   set folder              = ~/.mail/gmail                         # mailbox location
   set spoolfile           = "+INBOX"
-  set query_command       = "mail-query '%s' ~/.mail/gmail/INBOX"
+  set query_command       = "contacts -Sf '%eTOKEN%n' '%s' | sed -e 's/TOKEN/\t/g'"
 
 # notmuch settings
   set nm_default_uri      = "notmuch:///Users/walan/.mail/gmail"  # notmuch uri
   set virtual_spoolfile   = yes
-  virtual-mailboxes       "❒ INBOX"   "notmuch://?query=tag:inbox"
 
 # main options
 unset beep_new                                                    # terminal bell on new message
@@ -51,7 +52,7 @@ unset wait_key                                                    # don't show "
   set alias_format        = "%4n %t %-20a %r"
   set date_format         = "%Y-%m-%d at %H:%M"
   set forward_format      = "Fwd: %s"                             # format for subject when forwarding
-  set index_format        = "%3C %Z %[!%d/%m %H:%m] %?X?₪& ? %-17.17F [%g ] %s"
+  set index_format        = "%3C %Z %[!%d/%m %H:%m] %?X?₪& ? %-17.17F [%g] %s"
   set quote_regexp        = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
   set reply_regexp        = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
   set status_format       = "-%r- %f %m%?n? [+%n]?%?d? [-%d]?%?t? [*%t]? %?p?───/ %p waiting to send /?─%>─(%P)───"
@@ -72,7 +73,7 @@ unset wait_key                                                    # don't show "
   hdr_order from: to: cc: date: subject:                          # and in this order
 
 # source stuff
-  source $alias_file 
+  source $alias_file
   source ~/.mutt/lists
   source ~/.mutt/sidebar
   source ~/.mutt/colors

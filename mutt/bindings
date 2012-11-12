@@ -1,5 +1,8 @@
-# alwyas exit with q
+# always exit with q
 bind index,pager,alias,attach,browser,compose,postpone q exit
+
+# address completion with query
+bind editor <Tab> complete-query
 
 # unset
 bind index,pager \# noop
@@ -9,11 +12,15 @@ bind index i        noop
 # other bindings
 bind pager ,q      toggle-quoted
 bind pager /       search
+bind compose p     postpone-message
+bind index p       recall-message
+bind index,pager S flag-message
 
-bind pager j       next-line
-bind pager k       previous-line
-bind pager J       next-undeleted
-bind pager K       previous-undeleted
+# moving
+bind pager J       next-line
+bind pager K       previous-line
+bind pager j       next-undeleted
+bind pager k       previous-undeleted
 bind pager gg      top
 bind pager G       bottom
 
@@ -30,28 +37,25 @@ bind index,pager \Cj sidebar-next
 bind index,pager \Ck sidebar-prev
 bind index,pager \Cl sidebar-open
 
+# folding
+bind index za collapse-thread
+bind index ,z collapse-all
+
 # search via notmuch
 bind index ,f vfolder-from-query
 
 # macros
 macro index,pager ,n "<enter-command>toggle sidebar_visible\n" "toggle sidebar visible"
-macro index,pager ,N "<sidebar-toggle>\n" "toggle sidebar"
-macro index,pager ,r "<sync-mailbox>\n<shell-escape>~/.mutt/scripts/tag-messages\n" "refresh..."
-macro index,pager ,z "<sync-mailbox>\n<shell-escape>~/.mutt/scripts/mailrun\n" "syncing..."
-macro index ,m "<change-vfolder>?\n" "show folders"
-macro index ,p "<pipe-message>cat > ~/" "save message as"
-macro index ,R "<tag-pattern>all\n<tag-prefix><clear-flag>N<untag-pattern>all\n" "mark all as read"
-# macro index ,R "<collapse-all><tag-pattern>all\n<tag-prefix><clear-flag>N<untag-pattern>all\n<collapse-all>" "mark all as read (collapsed)"
-macro index ,v "<collapse-thread>" "collapse/uncollapse thread"
-macro index ,V "<collapse-all>"    "collapse/uncollapse all threads"
+macro index,pager ,N "<sidebar-toggle>\n" "toggle sidebar view"
 macro index,pager \Cb "<pipe-message>urlview\n" "list and open url's in message"
-
-macro index,pager S "<modify-labels>+★ \n<copy-message>=starred\n<sync-mailbox>" "starred message"
-macro index,pager A "<modify-labels>+archive -inbox\n<save-message>=all_mail\n<sync-mailbox>" "archive message"
+macro index,pager A "<save-message>=all_mail\n<sync-mailbox>" "archive message"
+macro index,pager ,r "<sync-mailbox>\n<shell-escape>~/.mutt/scripts/mailrun\n" "syncing..."
+macro index ,R "<tag-pattern>all\n<tag-prefix><clear-flag>N<untag-pattern>all\n" "mark all as read"
+macro index ,p "<pipe-message>cat > ~/" "save message as"
 
 # like gmail I what to jump
 macro index,pager gi "<change-folder>!\n" "go to inbox"
 macro index,pager gd "<change-folder>=drafts\n" "go to drafts"
-macro index,pager gf "<change-vfolder>\n" "go to folder"
+macro index,pager gf "<change-folder>" "go to folder"
 
 # vim: ft=muttrc
