@@ -6,4 +6,4 @@ if ps $pid &>/dev/null; then
   kill -9 $pid
 fi
 
-offlineimap -o 
+offlineimap -f INBOX,drafts,starred,@Receipts,@See -o -u quiet &

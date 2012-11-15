@@ -49,7 +49,7 @@ macro index,pager ,n "<enter-command>toggle sidebar_visible\n" "toggle sidebar v
 macro index,pager ,N "<sidebar-toggle>\n" "toggle sidebar view"
 macro index,pager \Cb "<pipe-message>urlview\n" "list and open url's in message"
 macro index,pager A "<save-message>=all_mail\n<sync-mailbox>" "archive message"
-macro index,pager ,r "<sync-mailbox>\n<shell-escape>~/.mutt/scripts/mailrun\n" "syncing..."
+macro index,pager ,r "<sync-mailbox>\n<shell-escape>~/.mutt/scripts/mailrun-quick\n" "syncing..."
 macro index ,R "<tag-pattern>all\n<tag-prefix><clear-flag>N<untag-pattern>all\n" "mark all as read"
 macro index ,p "<pipe-message>cat > ~/" "save message as"
 
