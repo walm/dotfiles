@@ -1,3 +1,3 @@
 . ~/.zsh/env
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-PATH=$PATH:/usr/local/share/npm/bin:$HOME/android-develop/sdk/tools
+PATH=$PATH:/usr/local/share/npm/bin:$HOME/android-develop/sdk/tools:$HOME/android-develop/sdk/platform-tools

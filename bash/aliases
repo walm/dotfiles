@@ -5,6 +5,7 @@ alias ea='vim ~/.dotfiles/bash/aliases && reload' # Edit aliases
 alias ee='vim ~/.dotfiles/bash/env'
 alias e='vim'
 alias h='history'
+alias v='vagrant'
 
 # Processes
 alias tu='top -o cpu'   # cpu

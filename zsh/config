@@ -19,9 +19,13 @@ fi
 # Use vcprompt if exists (install with vcprompt-install)
 if [[ -a ~/bin/vcprompt ]]; then
 
+# PROMPT='
+# %~ (%{$fg[cyan]%}%n%{$reset_color%} @ %{$fg[green]%}%m%{$reset_color%}%) %{$fg_bold[magenta]%}$(vcprompt)
+# → %{$reset_color%}'
+
 PROMPT='
-%~ (%{$fg[cyan]%}%n%{$reset_color%} @ %{$fg[green]%}%m%{$reset_color%}%) %{$fg_bold[magenta]%}$(vcprompt)
-→ %{$reset_color%}'
+%~ [%{$fg[cyan]%}%n%{$reset_color%} @ %{$fg[green]%}%m%{$reset_color%}%\] %{$fg_bold[magenta]%}$(vcprompt)
+%{$fg[red]%}▪ %{$reset_color%}'
 
 else
 

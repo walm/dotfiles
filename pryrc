@@ -5,7 +5,7 @@
 # for your terminal
 
 # vi mode in pry
-Readline.vi_editing_mode
+# Readline.vi_editing_mode
 Pry.config.ls.separator = "\n" # new lines between methods
 Pry.config.ls.heading_color = :magenta
 Pry.config.ls.public_method_color = :green
