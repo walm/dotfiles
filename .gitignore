@@ -4,3 +4,5 @@ ssh
 touch-to-trigger-sync
 *.pyc
 mutt/aliases
+config/fish/fish_history
+config/fish/fishd.b8f6b1158345
