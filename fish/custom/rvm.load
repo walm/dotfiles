@@ -1,0 +1,2 @@
+# set default ruby version
+rvm use 2.0

@@ -1,7 +1,7 @@
 # name: Walm
 
 function _pwd_home
-  echo (command pwd | sed "s,$HOME,~,g") 
+  echo (command pwd | sed "s,$HOME,~,g")
 end
 
 function _git_branch_name
