@@ -2,6 +2,8 @@ set ignorecase
 set wrapscan
 set guioptions=r
 
+nmap gt :tabnext<cr>
+nmap gT :tablast<cr>
 nmap ,A :xccmd jumpToNextCounterpart<cr>
 nmap ,n :xccmd toggleNavigatorsVisibility<cr>
 nmap ,f :xccmd openQuickly<cr>
