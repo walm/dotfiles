@@ -6,6 +6,10 @@ export NARWHAL_ENGINE=jsc
 export CAPP_BUILD=~/src/cappuccino/build
 export NODE_PATH=/usr/local/lib/node_modules
 export APPORTABLE_PATH=~/.apportable/SDK/bin
-export PATH=~/bin:/opt/local/bin:/usr/local/bin:/usr/local/sbin:/usr/local/narwhal/bin:~/android-develop/sdk/tools:~/android-develop/sdk/platform-tools/:$PATH
+export PATH=~/bin:/opt/local/bin:/usr/local/bin:/usr/local/sbin:/usr/local/narwhal/bin:$PATH
 export PATH=/usr/local/heroku/bin:$PATH
+export PATH=/usr/local/share/npm/bin:$PATH
 export PATH=$APPORTABLE_PATH:$PATH
+export PATH=$PATH:$HOME/.rvm/bin
+export PATH=./node_modules/.bin/:$PATH
+
