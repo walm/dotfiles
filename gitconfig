@@ -23,6 +23,7 @@
   la = !git l --all
   fa = fetch --all
   pom = push origin master
+  pod = push origin develop
   pbm = push bitbucket master
   pbd = push bitbucket develop
   ds = diff --stat=160,120
