@@ -6,6 +6,9 @@ alias ee='vim ~/.dotfiles/bash/env'
 alias e='vim'
 alias h='history'
 alias v='vagrant'
+alias webserver='ruby -run -e httpd . -p5000'
+alias ql="qlmanage -p 2>/dev/null" # preview a file using QuickLook
+alias fixow='/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain user;killall Finder;echo "Open With has been rebuilt, Finder will relaunch"'
 
 # Processes
 alias tu='top -o cpu'   # cpu
@@ -42,10 +45,6 @@ alias gc="git ci -m"
 # Ruby
 alias r="rake"
 
-# PHP
-# alias tail-php-error="tail -f `brew --prefix php`/var/log/php_errors.log"
-alias tail-php-error="tail -f /Applications/MAMP/logs/php_error.log"
-
 # commands starting with % for pasting from web
 alias %=' '
 
@@ -54,29 +53,4 @@ alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias flush="dscacheutil -flushcache" # Flush DNS cache
 alias ping="ping -c 5" # ping 5 times ‘by default’
-
-# some utils
-alias ql="qlmanage -p 2>/dev/null" # preview a file using QuickLook
-alias fixow='/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain user;killall Finder;echo "Open With has been rebuilt, Finder will relaunch"'
-
-# some quick service start/stop alias
-
-# nginx
-alias nginx-reload="sudo /usr/local/sbin/nginx -s reload"
-alias nginx-stop="sudo /usr/local/sbin/nginx -s stop"
-alias nginx-start="sudo /usr/local/sbin/nginx -g deamon=off;"
-alias nginx-restart="nginx-stop; nginx-start"
-
-# mysql
-alias mysql-start="mysql.server start"
-alias mysql-stop="mysql.server stop"
-alias mysql-restart="mysql-stop; mysql-start"
-
-# postgresql
-alias psql-start="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
-alias psql-stop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
-alias psql-restart="psql-stop; psql-start"
-
-# mongo
-alias mongo-start="mongod run --config /usr/local/Cellar/mongodb/2.0.4-x86_64/mongod.conf --rest"
 
