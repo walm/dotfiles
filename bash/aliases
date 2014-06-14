@@ -6,9 +6,11 @@ alias ee='vim ~/.dotfiles/bash/env'
 alias e='vim'
 alias h='history'
 alias v='vagrant'
+alias d='docker'
 alias webserver='ruby -run -e httpd . -p5000'
 alias ql="qlmanage -p 2>/dev/null" # preview a file using QuickLook
 alias fixow='/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain user;killall Finder;echo "Open With has been rebuilt, Finder will relaunch"'
+alias todos='ag "TODO:|FIXME:"'
 
 # Processes
 alias tu='top -o cpu'   # cpu
