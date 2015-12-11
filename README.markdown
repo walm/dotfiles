@@ -34,7 +34,8 @@ Or clone this repo into `~/.dotfiles`
 #
 ## VIM
 
-All plugins has been vendor in this repository. Why? it's faster to install and it just works, and Github seems to have the space to handle it ;)
+    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    vim +PluginInstall +qall
 
 ## Docker
 
