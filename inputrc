@@ -1,13 +1,32 @@
+# do not bell on tab-completion
+set bell-style none
+
 # readline settings, default to vi mode
 set editing-mode vi
 $if mode=vi
 
+# esc-s add sudo to current line
+"\es":"\eI sudo \eA"
+
+# esc-bg send to background and discarding outputs
+"\ebg":"\eA > /dev/null 2>&1 &\C-m"
+
+#
 # for vi-command mode
 set keymap vi-command
 Control-l: clear-screen
 
+# history search mode with up/down
+"\e[A":history-search-backward
+"\e[B":history-search-forward
+
+#
 # for vi-insert mode
 set keymap vi-insert
 Control-l: clear-screen 
+
+# history search mode with up/down
+"\e[A":history-search-backward
+"\e[B":history-search-forward
 
 $endif
