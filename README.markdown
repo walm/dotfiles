@@ -1,44 +1,71 @@
 My dotfiles
 ===========
 
-Installation
-------------
+I mainly use Arch and OS X. Code in go and ruby.
 
-    curl -L "https://raw.github.com/walm/dotfiles/master/setup.sh" | bash
+## Install
 
-or
+Simply do this
 
-    git clone git://github.com/walm/dotfiles.git ~/.dotfiles
+    curl -L "https://raw.github.com/walm/dotfiles/master/install.sh" | bash
+
+Or clone this repo into `~/.dotfiles`
+
+    git clone git@github.com:walm/dotfiles.git ~/.dotfiles
     cd ~/.dotfiles
-    rake install
+    ./install.sh
 
-The dotfiles will be symlinked, e.g. `~/.bash_profile` symlinked to `~/.dotfiles/bash_profile`.
+## Arch requirements
 
-The rake task will not replace existing files, but it will replace existing symlinks.
+    pacman -S vim tmux bash-completion autojump go ruby the_silver_searcher
 
-Environment
------------
+## Mac requirements
 
-I'm on Mac OS X and zsh, but this includes bash config as well.
+[Homebrew](http://brew.sh/) and [Xcode](https://developer.apple.com/)
 
-Mac is default to bash, bt switch to zsh by
+    brew install bash bash-completion
+    brew install git git-flow
+    brew install tmux reattach-to-user-namespace
+    brew install vim ctags the_silver_searcher
+    brew install autojump
+    brew install rbenv ruby-build rbenv-ctags
+    brew install go
 
-  chsh -s /bin/zsh
+#
+## VIM
 
-<.replace>
-----------
+All plugins has been vendor in this repository. Why? it's faster to install and it just works, and Github seems to have the space to handle it ;)
 
-If e.g. `~/.dotfiles/gitconfig` contains `<.replace github-token>` then
+## Docker
 
- * that bit will be replaced with the contents of `~/.github-token`
- * the resulting file will be written to `~/.gitconfig` directly, not symlinked.
+Use [docker toolbox](https://www.docker.com/toolbox) on OS X
 
-So if you want to make changes to that file, make them in `~/dotfiles/gitconfig` and then run `redot` (same as `rake install`).
-Changes to symlinked files without `<.replace>` bits do not require a `redot` on every change as they're symlinked.
+Create a local machine named `local` by
 
-Inspired by
------------
+    docker-machine create -d virtualbox \
+        --virtualbox-memory 4096 \
+        --virtualbox-cpu-count 2 \
+        --virtualbox-disk-size 60000 \
+        local
 
-[ryanb/dotfiles](http://github.com/ryanb/dotfiles/)
+Add bash completions for docker
 
-[henrik/dotfiles](http://github.com/henrik/dotfiles/)
+    brew tap homebrew/completions
+    brew install homebrew/completions/docker-completion
+
+## Golang
+
+In vim, do `:GoInstallBinaries` to install tools [vim-go](https://github.com/fatih/vim-go) uses.
+
+## Ruby
+
+Install ruby and set default version
+
+    rbenv install 2.2.3
+    rbenv global 2.2.3
+
+#
+# License
+
+This repository is MIT-licensed. You are awesome.
+

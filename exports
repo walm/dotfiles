@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# environment
+export EDITOR="vim"
+export TERMINAL="urxvt"
+
+# history
+# remove duplicates from history
+export HISTCONTROL=erasedups
+# keep a lot in history
+export HISTSIZE=50000
+# commands to not show in history
+export HISTIGNORE=" *:ls:cd:cd -:pwd:exit:date:* --help:* -h"
+
+# locale
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+
+# don’t clear the screen after man
+export MANPAGER="less -X"
+
+# gtk hidpi
+if [[ -n "$RETINA" ]]; then
+  export GDK_SCALE=2
+  export GDK_DPI_SCALE=0.5
+  export QT_DEVICE_PIXEL_RATIO=2
+fi
+
+# go vendoring
+export GO15VENDOREXPERIMENT=1
+export GOMAXPROCS=1

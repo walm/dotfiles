@@ -1,0 +1,11 @@
+#!/bin/bash
+
+export GOROOT=/usr/lib/go
+# mac brew
+[[ -d /usr/local/opt/go/libexec ]] && export GOROOT=/usr/local/opt/go/libexec
+export GOPATH=$HOME/src/gocode
+
+export PATH=$GOPATH/bin:$PATH
+export PATH=$GOROOT/bin:$PATH
+export PATH=~/.gem/ruby/2.2.0/bin:$PATH
+export PATH=~/bin:$PATH

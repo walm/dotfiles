@@ -1,0 +1,24 @@
+#!/bin/bash
+
+set_prompt () {
+  Last_Command=$? # must be first
+
+  # default path [user @ host]
+  PS1="\n\w [\[$Cyan\]\u \[$IBlack\]@"
+
+  # if root, host is red
+  if [[ $EUID == 0 ]]; then
+    PS1+=" \[$Red\]\h"
+  else
+    PS1+=" \[$Green\]\h"
+  fi
+  PS1+="\[$Color_Off\]]\n"
+
+  # last exit status
+  if [[ $Last_Command == 0 ]]; then
+    PS1+="\[$BICyan\]\$\[$Color_Off\] "
+  else
+    PS1+="\[$Red\]\$\[$Color_Off\] "
+  fi
+}
+PROMPT_COMMAND='set_prompt'
