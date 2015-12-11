@@ -15,32 +15,14 @@ man() {
 
 # set environment for docker-machines and store it for next login
 dm-env() {
-  docker-machine env $1 > ~/.docker-machine-env
+  docker-machine env "$1" > ~/.docker-machine-env
   source ~/.docker-machine-env
 }
 
 # create a dir and cd it
 take() {
   mkdir -p "$1"
-  cd "$1"
-}
-
-# calculator
-calc() {
-  local result=""
-  result="$(printf "scale=10;$*\n" | bc --mathlib | tr -d '\\\n')"
-  #           └─ default (when `--mathlib` is used) is 20
-
-  if [[ "$result" == *.* ]]; then
-    # improve the output for decimal numbers
-    printf "$result" |
-    sed -e 's/^\./0./'      `# add "0" for cases like ".5"` \
-      -e 's/^-\./-0./'    `# add "0" for cases like "-.5"`\
-      -e 's/0*$//;s/\.$//';  # remove trailing zeros
-  else
-    printf "$result"
-  fi
-  printf "\n"
+  cd "$1" || exit
 }
 
 # start webserver in current dir

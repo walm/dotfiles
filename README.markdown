@@ -1,7 +1,9 @@
 My dotfiles
 ===========
 
-I mainly use Arch and OS X. Code in go and ruby.
+[![Build Status](https://semaphoreci.com/api/v1/projects/370c2994-f7f7-4baf-a419-104ab82f56a6/632018/badge.svg)](https://semaphoreci.com/walm/dotfiles)
+
+I mainly use Arch Linux and OS X.
 
 ## Install
 

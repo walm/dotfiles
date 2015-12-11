@@ -16,9 +16,6 @@ shopt -s histappend;
 # keyboard bindings
 bind -m vi-insert "\C-l":clear-screen
 
-# easy color
-source ~/.dotfiles/colors
-
 source ~/.dotfiles/exports
 source ~/.dotfiles/prompt
 source ~/.dotfiles/aliases
