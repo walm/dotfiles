@@ -7,14 +7,14 @@
 ln -is ~/.dotfiles/bashrc ~/.bashrc
 ln -is ~/.dotfiles/bash_profile ~/.bash_profile
 
-ln -isf ~/.dotfiles/vim ~/.vim
+ln -isn ~/.dotfiles/vim ~/.vim
 ln -is ~/.dotfiles/vimrc ~/.vimrc
 
 ln -is ~/.dotfiles/tmux.conf ~/.tmux.conf
 
 ln -is ~/.dotfiles/gitconfig ~/.gitconfig
 ln -is ~/.dotfiles/gitignore ~/.gitignore
-ln -isf ~/.dotfiles/git_template ~/.git_template
+ln -isn ~/.dotfiles/git_template ~/.git_template
 
 ln -is ~/.dotfiles/inputrc ~/.inputrc
 ln -is ~/.dotfiles/ctags ~/.ctags
@@ -25,4 +25,9 @@ mkdir -p ~/tmp
 # osx specific
 if [[ "$OSTYPE" == "darwin"* ]]; then
   ln -is ~/.dotfiles/tmux-osx.conf ~/.tmux-osx.conf
+
+else # assume linux
+  ln -is ~/.dotfiles/Xresources ~/.Xresources
+  ln -is ~/.dotfiles/Xmodmap ~/.Xmodmap
+  ln -is ~/.dotfiles/xinitrc ~/.xinitrc
 fi
