@@ -19,8 +19,8 @@ bind -m vi-insert "\C-l":clear-screen
 source ~/.dotfiles/exports
 source ~/.dotfiles/prompt
 source ~/.dotfiles/aliases
-source ~/.dotfiles/functions
 source ~/.dotfiles/completion
+source ~/.dotfiles/paths
 
 # autojump
 if [[ -f /etc/profile.d/autojump.sh ]]; then . /etc/profile.d/autojump.sh; fi

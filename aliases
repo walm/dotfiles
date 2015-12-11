@@ -2,6 +2,8 @@
 
 alias reload='. ~/.dotfiles/aliases'
 
+source ~/.dotfiles/functions
+
 alias ..='cd ..'
 alias ...='cd ../..'
 alias -- -='cd -'
