@@ -10,7 +10,7 @@ sysmodmap=/etc/X11/xinit/.Xmodmap
 [ -f $sysmodmap ] && xmodmap $sysmodmap
 
 # no bell
-setx b off
+xset b off
 
 # view options with `more /usr/share/X11/xkb/rules/base.lst`
 setxkbmap \
@@ -24,8 +24,8 @@ setxkbmap \
 [ -f "$usermodmap" ] && xmodmap "$usermodmap"
 
 # infinite loop, reload for wm
-while true; do 
-  exec frankenwm
-  sleep 1
-done
+exec sh -c "while true; do \
+  frankenwm ;\
+  sleep 1 ;\
+done"
 
