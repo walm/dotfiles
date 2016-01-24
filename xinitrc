@@ -13,15 +13,19 @@ sysmodmap=/etc/X11/xinit/.Xmodmap
 xset b off
 
 # view options with `more /usr/share/X11/xkb/rules/base.lst`
-setxkbmap \
-  -layout se \
-  -model apple_laptop \
-  -variant mac \
-  -option lv3:lalt_switch \
-  -option lv3:ralt_alt
+# pc
+setxkbmap -layout se -model pc105 -option ctrl:nocaps
+
+# mac
+#setxkbmap \
+#  -layout se \
+#  -model apple_laptop \
+#  -variant mac \
+#  -option lv3:lalt_switch \
+#  -option lv3:ralt_alt
 
 [ -f "$userresources" ] && xrdb -merge "$userresources"
-[ -f "$usermodmap" ] && xmodmap "$usermodmap"
+# [ -f "$usermodmap" ] && xmodmap "$usermodmap"
 
 # infinite loop, reload for wm
 exec sh -c "while true; do \
