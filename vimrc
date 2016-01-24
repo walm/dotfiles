@@ -13,7 +13,7 @@ set cursorline            " highlight current line
 set hlsearch              " highlight matches
 set showmatch             " highlight matching [{()}]
 set lazyredraw            " don't update the display while executing macros
-set listchars=tab:→\ ,trail:·,extends:#,nbsp:·,eol:¬
+set listchars=tab:▸\ ,trail:·,extends:#,nbsp:·,eol:¬
 set list!                 " show invisible characters by default
 set noswapfile            " do not write annoying swap files
 set equalalways           " multiple windows, when created, are equal in size
