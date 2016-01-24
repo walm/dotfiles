@@ -13,7 +13,7 @@ set cursorline            " highlight current line
 set hlsearch              " highlight matches
 set showmatch             " highlight matching [{()}]
 set lazyredraw            " don't update the display while executing macros
-set listchars=tab:▸\ ,trail:·,extends:#,nbsp:·,eol:¬
+set listchars=tab:→\ ,trail:·,extends:#,nbsp:·,eol:¬
 set list!                 " show invisible characters by default
 set noswapfile            " do not write annoying swap files
 set equalalways           " multiple windows, when created, are equal in size
@@ -156,7 +156,7 @@ map <leader>f :CtrlP<CR>
 map <leader>b :CtrlPBuffer<CR>
 let g:ctrlp_root_markers = ['root.dir']
 let g:ctrlp_custom_ignore = {
-  \ 'dir': '\v[\/]\.(git|hg|svn|tmp|grunt|vagrant)$|\v[\/](doc|dist|tmp|build|log|reports|coverage|node_modules|bower_components|vendor)$',
+  \ 'dir': '\v[\/]\.(git|hg|svn|tmp|grunt|vagrant)$|\v[\/](doc|dist|tmp|build|log|reports|coverage|node_modules|bower_components|vendor|Godeps)$',
   \ 'file': '\v\.(exe|so|dll)$'
   \ }
 if executable('ag')
@@ -237,6 +237,7 @@ vmap <C-j> ]egv
 " File types {{{
 augroup fileconf
   au!
+  au BufRead,BufNewFile *.psql set ft=sql
   au BufRead,BufNewFile {Gemfile,Rakefile,Guardfile,Vagrantfile,Thorfile,config.ru} set ft=ruby
   au BufReadPost *.rb :set norelativenumber " speed up syntax highlighting for ruby
   au BufReadPost *.go :set nolist " hide invisible when working in go, gofmt clean things up ;)
