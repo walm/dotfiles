@@ -1,0 +1,12 @@
+#!/bin/bash
+#
+# Display battery status in tmux status,
+# turns red if 15% or below
+#
+RED="#[fg=colour9]"
+BATPERC=$(acpi -b | awk '{print $4}' | sed 's/%\|,//g')
+if [[ $BATPERC -le 15 ]]; then
+  echo "${RED}$BATPERC%"
+else
+  echo "$BATPERC%"
+fi

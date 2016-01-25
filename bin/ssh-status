@@ -1,0 +1,10 @@
+#!/bin/bash
+#
+# Display geen dot in tmux status, if ssh session is active
+#
+GREEN="#[fg=colour2]"
+DOT="•"
+SSH_CONNS=$(pgrep -f "ssh " | wc -l)
+if [[ $SSH_CONNS -ge 1 ]]; then
+  echo "${GREEN}${DOT}"
+fi

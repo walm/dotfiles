@@ -22,6 +22,10 @@ ln -is ~/.dotfiles/ctags ~/.ctags
 # vim backup to ~/tmp so make sure it exists
 mkdir -p ~/tmp
 
+mkdir -p ~/bin
+ln -is ~/.dotfiles/bin/battery-status ~/bin
+ln -is ~/.dotfiles/bin/ssh-status ~/bin
+
 # osx specific
 if [[ "$OSTYPE" == "darwin"* ]]; then
   ln -is ~/.dotfiles/tmux-osx.conf ~/.tmux-osx.conf
