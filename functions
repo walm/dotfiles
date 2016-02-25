@@ -52,3 +52,7 @@ gcalcli(){
     --name gcalcli \
     jess/gcalcli "$@"
 }
+
+calc(){
+  awk "BEGIN{ print $* }"
+}
