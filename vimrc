@@ -256,6 +256,11 @@ else
 endif
 " }}}
 
+" Dbext {{{
+let g:dbext_default_profile_local = 'type=PGSQL:user=postgres:dbname=postgres:host=127.0.0.1'
+let g:dbext_default_profile_docker_main = 'type=PGSQL:user=postgres:dbname=main:host=172.17.0.4'
+" }}}
+
 " host specific
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local

@@ -32,6 +32,8 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'kana/vim-textobj-user'
 Plugin 'sjl/gundo.vim'
 Plugin 'rking/ag.vim'
+Plugin 'vim-scripts/dbext.vim'
+Plugin 'changa/psql.vim'
 
 " Web specific
 Plugin 'wavded/vim-stylus'
