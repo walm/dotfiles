@@ -32,6 +32,9 @@ alias ping='ping -c 5' # ping 5 times ‘by default’
 alias todos='ag "TODO:|FIXME:"'
 alias mode='(set -o | grep emacs.*on >/dev/null 2>&1 && echo "emacs mode" || echo "vi mode")'
 
+alias calw='gcalcli calw'
+alias calm='gcalcli calm'
+
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
   alias ql='qlmanage -p 2>/dev/null' # preview a file using QuickLook
