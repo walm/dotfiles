@@ -23,17 +23,16 @@ alias d='docker'
 alias dc-up='docker-compose up'
 alias dc-run='docker-compose run'
 alias week='date +%V'
-
-# stoptimer
-alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
-alias pubip='dig +short myip.opendns.com @resolver1.opendns.com'
-
+alias syncdate='hwclock -w'
+alias calw='gcalcli calw'
+alias calm='gcalcli calm'
 alias ping='ping -c 5' # ping 5 times ‘by default’
 alias todos='ag "TODO:|FIXME:"'
 alias mode='(set -o | grep emacs.*on >/dev/null 2>&1 && echo "emacs mode" || echo "vi mode")'
 
-alias calw='gcalcli calw'
-alias calm='gcalcli calm'
+# stoptimer
+alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
+alias pubip='dig +short myip.opendns.com @resolver1.opendns.com'
 
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
