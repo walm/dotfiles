@@ -30,6 +30,9 @@ alias ping='ping -c 5' # ping 5 times ‘by default’
 alias todos='ag "TODO:|FIXME:"'
 alias mode='(set -o | grep emacs.*on >/dev/null 2>&1 && echo "emacs mode" || echo "vi mode")'
 
+alias colorize="sed ''/PASS/s//$(printf \"\\033[32mPASS\\033[0m\")/'' | sed ''/FAIL/s//$(printf \"\\033[31mFAIL\\033[0m\")/'' | sed ''/SKIP/s//$(printf \"\\033[34mSKIP\\033[0m\")/''" # ex. go test . | colorize
+
+
 # stoptimer
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
 alias pubip='dig +short myip.opendns.com @resolver1.opendns.com'
