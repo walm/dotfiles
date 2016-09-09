@@ -56,3 +56,9 @@ gcalcli(){
 calc(){
   awk "BEGIN{ print $* }"
 }
+
+# kill ssh sessions based on username
+ssh-disconnect(){
+  local user="${1:walm}"
+  kill $(ps aux | grep ${user}@ | head  -n 1 | tr -s ' ' | cut -f 2 -d ' ')
+}
