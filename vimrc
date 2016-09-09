@@ -106,7 +106,8 @@ let NERDTreeIgnore=[ '\~$', '\.obj$', '\.o$', '\.so$', '^\.git$', '\.DS_Store' ]
 " Syntastic settings {{{
 let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': ['ruby', 'm', 'coffee', 'json', 'js', 'css', 'sass', 'scss'],
-                           \ 'passive_filetypes': ['html'] }
+                           \ 'passive_filetypes': ['html', 'go'] }
+let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 if executable('sassc')
   let g:syntastic_scss_checkers = ['sassc']
 endif
@@ -119,6 +120,7 @@ let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+let g:go_list_type = "quickfix"
 
 augroup goconf
   au!
