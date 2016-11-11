@@ -1,0 +1,25 @@
+#!/bin/bash
+#
+# Usage:
+#
+#   SLACK_DOMAIN=test SLACK_TOKEN=123 MESSAGE="This is a test" ./slack-notification
+#
+set -o errexit
+
+SELF=`basename "$0"`
+
+# set defaults
+: ${CHANNEL:="@walm"}
+: ${COLOR:="good"} # good, warning, danger or a HEX value
+: ${FROM:="bot"}
+
+if [ -z "$SLACK_DOMAIN" ];  then echo "Missing SLACK_DOMAIN"; exit 1; fi
+if [ -z "$SLACK_TOKEN" ];   then echo "Missing SLACK_TOKEN";  exit 1; fi
+if [ -z "$MESSAGE" ];       then echo "Missing MESSAGE";      exit 1; fi
+
+curl -X POST --silent --data-urlencode "payload={\
+       \"channel\": \"$CHANNEL\", \
+       \"username\": \"$FROM\", \
+       \"attachments\": [{ \"color\": \"$COLOR\", \"text\": \"$MESSAGE\", \"mrkdwn_in\": [\"text\"] }], \
+       \"icon_url\": \"https://i.imgur.com/AoOqRTv.png\" }" \
+       "https://$SLACK_DOMAIN.slack.com/services/hooks/incoming-webhook?token=$SLACK_TOKEN"
