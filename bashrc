@@ -17,6 +17,8 @@ shopt -s histappend;
 bind -m vi-insert "\C-l":clear-screen
 
 source ~/.dotfiles/exports
+if [[ -f ~/.exports ]]; then source ~/.exports; fi
+
 source ~/.dotfiles/prompt
 source ~/.dotfiles/aliases
 source ~/.dotfiles/completion

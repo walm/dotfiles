@@ -25,6 +25,7 @@ mkdir -p ~/tmp
 mkdir -p ~/bin
 ln -is ~/.dotfiles/bin/battery-status ~/bin
 ln -is ~/.dotfiles/bin/ssh-status ~/bin
+ln -is ~/.dotfiles/bin/slack-notify ~/bin
 
 # osx specific
 if [[ "$OSTYPE" == "darwin"* ]]; then
