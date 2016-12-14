@@ -1,5 +1,5 @@
-! Xft.dpi: 96 # for non retina
-Xft.dpi: 192
+Xft.dpi: 96
+!Xft.dpi: 192 # for retina
 Xft.autohint: 0
 Xft.lcdfilter: lcddefault
 Xft.hintstyle: hintfull
@@ -66,6 +66,12 @@ URxvt.scrollBar: false
 URxvt*boldColors: on
 URxvt.letterSpace: -1
 URxvt.iso14755: false
+
+! transparent settings (just use the background not underlying windows)
+URxvt*inheritPixmap: true
+URxvt*transparent: true
+! URxvt*shading: 0 to 99 darkens, 101 to 200 lightens
+URxvt*shading: 15
 
 ! URxvt*font:     xft:monaco:size=10:antialias=true:hinting=true:regular
 ! URxvt*boldFont: xft:monaco:size=10:antialias=true:hinting=true:bold
