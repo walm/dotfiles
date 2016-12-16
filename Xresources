@@ -60,8 +60,9 @@ xcursor.size: 24
 *color21:      base06
 
 URxvt*termName: screen-256color
-URxvt*fading: 30
+URxvt*fading: 40
 URxvt*visualBell: false
+URxvt*urgentOnBell: true
 URxvt.scrollBar: false
 URxvt*boldColors: on
 URxvt.letterSpace: -1

@@ -9,11 +9,18 @@
 #define CONTROL         ControlMask /* Control key */
 #define SHIFT           ShiftMask   /* Shift key */
 
+#define XF86AudioLowerVolume  0x1008ff11
+#define XF86AudioMute         0x1008ff12
+#define XF86AudioRaiseVolume  0x1008ff13
+#define XF86AudioPlay         0x1008ff14
+#define XF86AudioPrev         0x1008ff16
+#define XF86AudioNext         0x1008ff17
+
 /* EDIT THIS: general settings */
 #define MASTER_SIZE     0.6       /* master-stack ratio */
 #define SHOW_PANEL      True      /* show panel by default on exec */
 #define TOP_PANEL       True      /* False means panel is on bottom */
-#define PANEL_HEIGHT    16        /* 0 for no space for panel, thus no panel */
+#define PANEL_HEIGHT    20        /* 0 for no space for panel, thus no panel */
 #define DEFAULT_MODE    GRID      /* TILE MONOCLE BSTACK GRID FIBONACCI EQUAL */
 #define ATTACH_ASIDE    True      /* False means new window is master */
 #define FOLLOW_MOUSE    False     /* Focus the window the mouse just entered */
@@ -67,8 +74,14 @@ static const AppRule rules[] = { \
  */
 static const char *termcmd[] = { "urxvt",     NULL };
 static const char *menucmd[] = { "dmenu_run", NULL };
-/* static const char *scrpcmd[] = { "xterm", "-T", "scratchpad", NULL }; */
 static const char *scrpcmd[] = { "urxvt", "-name", "scratchpad",  NULL };
+static const char *mpdtogg[] = { "mpc", "-q", "toggle", NULL };
+static const char *mpdstop[] = { "mpc", "-q", "stop", NULL };
+static const char *mpdprev[] = { "mpc", "-q", "prev", NULL };
+static const char *mpdnext[] = { "mpc", "-q", "next", NULL };
+static const char *mute[]    = { "mpc", "-q", "volume", "0", NULL };
+static const char *voldown[] = { "mpc", "-q", "volume", "-5", NULL };
+static const char *volup[]   = { "mpc", "-q", "volume", "+5", NULL };
 
 #define DESKTOPCHANGE(K,N) \
     {  MOD4,             K,              change_desktop, {.i = N}}, \
@@ -87,9 +100,10 @@ static key keys[] = {
     {  MOD4,             XK_j,          next_win,          {NULL}},
     {  MOD4,             XK_k,          prev_win,          {NULL}},
     {  MOD1,             XK_Tab,        prev_win,          {NULL}},
+    {  MOD1|SHIFT,       XK_Tab,        next_win,          {NULL}},
 
     /* select the master window, or the previously focussed slave */
-    {  MOD4,             XK_w,          focusmaster,       {NULL}},
+    /* {  MOD4,             XK_w,          focusmaster,       {NULL}}, */ // use this to close now
     /* select urgent window */
     {  MOD4,             XK_BackSpace,  focusurgent,       {NULL}},
 
@@ -139,8 +153,18 @@ static key keys[] = {
     /* spawn terminal, dmenu, w/e you want to */
     {  MOD4|SHIFT,       XK_Return,     spawn,             {.com = termcmd}},
     {  MOD4,             XK_r,          spawn,             {.com = menucmd}},
+
+     /* media keys */
+    { 0,                 XF86AudioLowerVolume,    spawn,   {.com = voldown}},
+    { 0,                 XF86AudioMute,           spawn,   {.com = mute   }},
+    { 0,                 XF86AudioRaiseVolume,    spawn,   {.com = volup  }},
+    { 0,                 XF86AudioPlay,           spawn,   {.com = mpdtogg}},
+    { 0,                 XF86AudioPrev,           spawn,   {.com = mpdprev}},
+    { 0,                 XF86AudioNext,           spawn,   {.com = mpdnext}},
+
     /* kill current window */
-    {  MOD4|SHIFT,       XK_c,          killclient,        {NULL}},
+    {  MOD4,             XK_w,          killclient,        {NULL}},
+    /* {  MOD4|SHIFT,       XK_c,          killclient,        {NULL}}, */
 
     /* desktop selection */
        DESKTOPCHANGE(    XK_1,                             0)

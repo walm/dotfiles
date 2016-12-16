@@ -35,4 +35,7 @@ else # assume linux
   ln -is ~/.dotfiles/Xresources ~/.Xresources
   ln -is ~/.dotfiles/Xmodmap ~/.Xmodmap
   ln -is ~/.dotfiles/xinitrc ~/.xinitrc
+
+  mkdir -p ~/.config/yabar/
+  ln -is ~/.dotfiles/configs/yabar.conf ~/.config/yabar
 fi
