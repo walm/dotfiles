@@ -10,6 +10,9 @@ ln -is ~/.dotfiles/bash_profile ~/.bash_profile
 ln -isn ~/.dotfiles/vim ~/.vim
 ln -is ~/.dotfiles/vimrc ~/.vimrc
 
+mkdir -p ~/.config/nvim
+ln -is ~/.dotfiles/configs/nvim/init.vim ~/.config/nvim/init.vim
+
 ln -is ~/.dotfiles/tmux.conf ~/.tmux.conf
 
 ln -is ~/.dotfiles/gitconfig ~/.gitconfig

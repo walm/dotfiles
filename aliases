@@ -17,7 +17,7 @@ alias trls='tree -C | less -R' # -C outputs colour, -R makes less understand col
 
 # shortcuts
 alias t='dev_t' # having some problems w timetrap on ruby 2.3.3, this helps for now
-alias e='vim'
+alias e='nvim'
 alias h='history'
 alias g='git'
 alias d='docker'
