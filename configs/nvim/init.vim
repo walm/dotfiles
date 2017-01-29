@@ -54,6 +54,9 @@ let c_comment_strings=1
 
 " underline misspelled words
 hi! SpellBad cterm=NONE,undercurl term=NONE,undercurl ctermfg=NONE ctermbg=NONE guisp=DarkRed
+
+" transparent background
+hi! Normal ctermbg=none
 " }}}
 
 " Indentation functions {{{

@@ -29,6 +29,9 @@ silent! syntax enable
 
 " underline misspelled words
 silent! hi! SpellBad cterm=NONE,undercurl term=NONE,undercurl ctermfg=NONE ctermbg=NONE guisp=DarkRed
+
+" transparent background
+silent! hi! Normal ctermbg=none
 " }}}
 
 " Functions {{{
