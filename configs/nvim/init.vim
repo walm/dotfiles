@@ -19,6 +19,8 @@ Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Lokaltog/vim-easymotion'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " Go development
 Plug 'fatih/vim-go'
@@ -177,9 +179,6 @@ noremap gV `[v`]
 " toggle gundo
 "nnoremap <leader>u :GundoToggle<CR>
 
-" open ag.vim
-"nnoremap <leader>a :Ag
-
 " file / buffer navi
 " %% from https://github.com/garybernhardt/dotfiles/blob/master/.vimrc
 "cmap %% <C-R>=expand('%:h').'/'<CR>
@@ -218,6 +217,19 @@ vmap <C-k> [egv
 vmap <C-j> ]egv
 " }}}
 
+" FZF settings {{{
+map <leader>f :Files<CR>
+map <leader>gf :GFiles<CR>
+map <leader>b :Buffers<CR>
+map <leader>a :Ag
+
+" Insert mode completion
+" imap <c-x><c-k> <plug>(fzf-complete-word)
+" imap <c-x><c-f> <plug>(fzf-complete-path)
+" imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+" imap <c-x><c-l> <plug>(fzf-complete-line)
+" }}}
+
 " File types {{{
 filetype plugin indent on
 
@@ -252,3 +264,4 @@ if !exists(":DiffOrig")
   command DiffOrig vert new | set buftype=nofile | read ++edit # | 0d_ | diffthis
                  \ | wincmd p | diffthis
 endif
+

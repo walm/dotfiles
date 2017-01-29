@@ -38,3 +38,5 @@ fi
 # source saved docker-machine-env
 if [[ -f ~/.docker-machine-env ]]; then source ~/.docker-machine-env; fi
 
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
