@@ -27,8 +27,9 @@ setxkbmap -layout se -model pc105 -option ctrl:nocaps
 [ -f "$userresources" ] && xrdb -merge "$userresources"
 # [ -f "$usermodmap" ] && xmodmap "$usermodmap"
 
-urxvt # start this so we can run vmware-user.. and then quit and screen should be all ok
 start-pulseaudio-x11
+vmware-user-suid-wrapper
+sleep 2
 feh --image-bg black --bg-max '/home/walm/wallpapers/01uIG2a.jpg' --geometry +0 --no-fehbg
 yabar &
 frankenwm

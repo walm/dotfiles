@@ -80,9 +80,12 @@ URxvt*font:       xft:Inconsolata\-g for Powerline:size=10:antialias=true:hintin
 URxvt*boldFont:   xft:Inconsolata\-g for Powerline:size=10:antialias=true:hinting=true:bold
 
 ! extentions
-URxvt.perl-ext-common: default,selection-to-clipboard,resize-font
+URxvt.perl-ext-common: default,url-select,selection-to-clipboard,resize-font
 
 ! easy resize of font
 URxvt.resize-font.smaller: C-Down
 URxvt.resize-font.bigger: C-Up
 
+! yank urls
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.url-select.underline: true
