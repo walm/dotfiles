@@ -66,9 +66,23 @@ hi! SpellBad cterm=NONE,undercurl term=NONE,undercurl ctermfg=NONE ctermbg=NONE 
 hi! Normal ctermbg=none
 " }}}
 
-" Indentation functions {{{
+" Functions {{{
+
+" strip trailing whitespaces (mapped to <leader><BS>)
+function! StripTrailingWhitespaces()
+  " preparation save last search, and cursor position.
+  let _s=@/
+  let l = line(".")
+  let c = col(".")
+  " do the business:
+  %s/\s\+$//e
+  " clean up: restore previous search history, and cursor position
+  let @/=_s
+  call cursor(l, c)
+endfunc
+
+" use 2 spaces for indenting
 function! TabstyleSpaces()
-  " Use 2 spaces
   set softtabstop=2 " when hitting <BS>, pretend like a tab is removed, even if spaces
   set shiftwidth=2  " number of spaces to use for autoindenting
   set tabstop=2     " a tab is two spaces
@@ -77,8 +91,8 @@ function! TabstyleSpaces()
 endfunc
 command! -nargs=* Tspaces call TabstyleSpaces()
 
+" using 4 column tabs for indenting
 function! TabstyleTabs()
-  " Using 4 column tabs
   set softtabstop=4
   set shiftwidth=4
   set tabstop=4
@@ -173,7 +187,7 @@ noremap Q gq
 nnoremap <leader><space> :exe "nohlsearch \| set nospell"<CR>
 
 " stripe whitespaces
-"map <leader><BS> :call StripTrailingWhitespaces()<CR>
+map <leader><BS> :call StripTrailingWhitespaces()<CR>
 
 " toggle invisibles
 map <leader>i :set list!<CR>
