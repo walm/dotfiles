@@ -16,7 +16,7 @@ alias tree='tree -C'
 alias trls='tree -C | less -R' # -C outputs colour, -R makes less understand color
 
 # shortcuts
-alias t='dev_t' # having some problems w timetrap on ruby 2.3.3, this helps for now
+alias t='docker run --rm -ti -v ~/.timetrap.db:/root/.timetrap.db walm/timetrap'
 alias e='nvim'
 alias h='history'
 alias g='git'
