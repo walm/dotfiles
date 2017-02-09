@@ -30,9 +30,10 @@ alias calm='gcalcli calm'
 alias ping='ping -c 5' # ping 5 times ‘by default’
 alias todos='ag "TODO:|FIXME:"'
 alias mode='(set -o | grep emacs.*on >/dev/null 2>&1 && echo "emacs mode" || echo "vi mode")'
+alias capture='maim -s -c 1,0,0,0.6 ~/Downloads/capture-$(date +%F-%T).png'
 
-alias colorize="sed ''/PASS/s//$(printf \"\\033[32mPASS\\033[0m\")/'' | sed ''/FAIL/s//$(printf \"\\033[31mFAIL\\033[0m\")/'' | sed ''/SKIP/s//$(printf \"\\033[34mSKIP\\033[0m\")/''" # ex. go test . | colorize
-
+# ex. go test . | colorize
+alias colorize="sed ''/PASS/s//$(printf \"\\033[32mPASS\\033[0m\")/'' | sed ''/FAIL/s//$(printf \"\\033[31mFAIL\\033[0m\")/'' | sed ''/SKIP/s//$(printf \"\\033[34mSKIP\\033[0m\")/''"
 
 # stoptimer
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
@@ -47,7 +48,11 @@ else # assume linux
     if [[ "$1" == *".pdf" ]]; then
       zathura --mode=fullscreen "$@"
     else
-      gpicview "$@"
+      if command -v gpicview 2>/dev/null; then
+        gpicview "$@"
+      else
+        feh "$@"
+      fi
     fi
   }
 
