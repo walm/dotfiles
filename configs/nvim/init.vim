@@ -29,6 +29,7 @@ Plug 'junegunn/fzf.vim'
 
 " Go development
 Plug 'fatih/vim-go'
+Plug 'jodosha/vim-godebug'
 
 " Colorschemes
 Plug 'chriskempson/vim-tomorrow-theme'
