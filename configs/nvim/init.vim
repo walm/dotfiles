@@ -190,6 +190,9 @@ nnoremap <leader><space> :exe "nohlsearch \| set nospell"<CR>
 " stripe whitespaces
 map <leader><BS> :call StripTrailingWhitespaces()<CR>
 
+" trigger neomake
+map <leader>c :Neomake<CR>
+
 " toggle invisibles
 map <leader>i :set list!<CR>
 
