@@ -76,8 +76,8 @@ URxvt*shading: 15
 
 ! URxvt*font:     xft:monaco:size=10:antialias=true:hinting=true:regular
 ! URxvt*boldFont: xft:monaco:size=10:antialias=true:hinting=true:bold
-URxvt*font:       xft:Inconsolata\-g for Powerline:size=10:antialias=true:hinting=true
-URxvt*boldFont:   xft:Inconsolata\-g for Powerline:size=10:antialias=true:hinting=true:bold
+URxvt*font:       xft:Inconsolata\\-g for Powerline:size=10:antialias=true:hinting=true
+URxvt*boldFont:   xft:Inconsolata\\-g for Powerline:size=10:antialias=true:hinting=true:bold
 
 ! extentions
 URxvt.perl-ext-common: default,url-select,selection-to-clipboard,resize-font
