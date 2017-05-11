@@ -16,7 +16,7 @@ alias tree='tree -C'
 alias trls='tree -C | less -R' # -C outputs colour, -R makes less understand color
 
 # shortcuts
-alias t='docker run --rm -ti -e "TZ=Stockholm" -v ~/.timetrap.db:/root/.timetrap.db walm/timetrap'
+alias t='docker run --rm -ti -v /etc/localtime:/etc/localtime -v ~/.timetrap.db:/root/.timetrap.db walm/timetrap'
 alias e='nvim'
 alias h='history'
 alias g='git'
