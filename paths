@@ -8,4 +8,6 @@ export GOPATH=$HOME/src/gocode
 export PATH=$GOPATH/bin:$PATH
 export PATH=$GOROOT/bin:$PATH
 export PATH=~/.gem/ruby/2.4.0/bin:$PATH
-export PATH=~/bin:$PATH
+export PATH=~/.rbenv/bin:$PATH
+export PATH=~/.node_modules_global/bin:$PATH
+export PATH=~/bin:~/.local/bin:$PATH
