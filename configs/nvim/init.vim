@@ -26,10 +26,15 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'kylef/apiblueprint.vim'
 
 " Go development
 Plug 'fatih/vim-go'
 Plug 'jodosha/vim-godebug'
+
+" Javascript
+Plug 'othree/yajs.vim'
+Plug 'othree/es.next.syntax.vim'
 
 " Colorschemes
 Plug 'chriskempson/vim-tomorrow-theme'
