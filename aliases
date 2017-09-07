@@ -8,7 +8,11 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias -- -='cd -'
 
-alias ls='ls -F --color=auto'
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  alias ls='ls -FG'
+else
+  alias ls='ls -F --color=auto'
+fi
 alias l='ls -lAh'
 alias la='ls -Al'
 
@@ -25,6 +29,7 @@ alias dc-up='docker-compose up'
 alias dc-run='docker-compose run'
 alias week='date +%V'
 alias sync-time='sudo ntpd -qg'
+alias sync-all='unison go && unison reve && unison hub'
 alias calw='gcalcli calw'
 alias calm='gcalcli calm'
 alias ping='ping -c 5' # ping 5 times ‘by default’
