@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # environment
-export EDITOR="vim"
+export EDITOR="nvim"
 export TERMINAL="urxvt"
 
 # history
