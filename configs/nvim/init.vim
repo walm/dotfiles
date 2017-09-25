@@ -36,6 +36,9 @@ Plug 'jodosha/vim-godebug'
 Plug 'othree/yajs.vim'
 Plug 'othree/es.next.syntax.vim'
 
+" Crystal
+Plug 'rhysd/vim-crystal'
+
 " Colorschemes
 Plug 'chriskempson/vim-tomorrow-theme'
 
