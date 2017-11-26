@@ -74,6 +74,7 @@ static const AppRule rules[] = { \
  */
 static const char *termcmd[] = { "urxvt",     NULL };
 static const char *menucmd[] = { "dmenu_run", NULL };
+static const char *clipcmd[] = { "clipmenu", NULL };
 static const char *scrpcmd[] = { "urxvt", "-name", "scratchpad",  NULL };
 static const char *mpdtogg[] = { "mpc", "-q", "toggle", NULL };
 static const char *mpdstop[] = { "mpc", "-q", "stop", NULL };
@@ -118,7 +119,7 @@ static key keys[] = {
     {  MOD4,             XK_m,          minimize,          {NULL}},
     {  MOD4,             XK_n,          restore,           {NULL}},
     /* move the current window to the center of the screen, floating */
-    {  MOD4,             XK_c,          centerwindow,      {NULL}},
+    {  MOD4|SHIFT,       XK_c,          centerwindow,      {NULL}},
     /* toggles inverted stacking modes (left/top stack) */
     {  MOD4|SHIFT,       XK_i,          invertstack,       {NULL}},
     /* show/hide all windows on all desktops */
@@ -153,6 +154,7 @@ static key keys[] = {
     /* spawn terminal, dmenu, w/e you want to */
     {  MOD4|SHIFT,       XK_Return,     spawn,             {.com = termcmd}},
     {  MOD4,             XK_r,          spawn,             {.com = menucmd}},
+    {  MOD1|SHIFT,       XK_v,          spawn,             {.com = clipcmd}},
 
      /* media keys */
     { 0,                 XF86AudioLowerVolume,    spawn,   {.com = voldown}},

@@ -59,6 +59,8 @@ xcursor.size: 24
 *color20:      base04
 *color21:      base06
 
+rofi.theme: purple
+
 URxvt*termName: screen-256color
 URxvt*fading: 40
 URxvt*visualBell: false

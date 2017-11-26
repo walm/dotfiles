@@ -32,5 +32,6 @@ vmware-user-suid-wrapper
 sleep 2
 feh --image-bg black --bg-max '/home/walm/wallpapers/01uIG2a.jpg' --geometry +0 --no-fehbg
 yabar &
+clipmenud &
 frankenwm
 
