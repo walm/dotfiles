@@ -3,6 +3,7 @@
 # environment
 export EDITOR="nvim"
 export TERMINAL="urxvt"
+export BROWSER="firefox-developer-edition"
 
 # history
 # remove duplicates from history

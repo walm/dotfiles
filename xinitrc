@@ -1,37 +1,23 @@
-#!/bin/bash
+#!/bin/sh
 
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 
-# merge in defaults and keymaps
-[ -f $sysresources ] && xrdb -merge $sysresources
-[ -f $sysmodmap ] && xmodmap $sysmodmap
-
 # no bell
-xset b off
+xset -b
 
-# view options with `more /usr/share/X11/xkb/rules/base.lst`
-# pc
-setxkbmap -layout se -model pc105 -option ctrl:nocaps
+# fast keyboard repeat
+xset r rate 200 25
 
-# mac
-#setxkbmap \
-#  -layout se \
-#  -model apple_laptop \
-#  -variant mac \
-#  -option lv3:lalt_switch \
-#  -option lv3:ralt_alt
-
+# merge in defaults and keymaps
+[ -f "$sysresources" ] && xrdb -merge "$sysresources"
+[ -f "$sysmodmap" ] && xmodmap "$sysmodmap"
 [ -f "$userresources" ] && xrdb -merge "$userresources"
-# [ -f "$usermodmap" ] && xmodmap "$usermodmap"
+[ -f "$usermodmap" ] && xmodmap "$usermodmap"
 
-start-pulseaudio-x11
-vmware-user-suid-wrapper
+vmware-user
 sleep 2
-feh --image-bg black --bg-max '/home/walm/wallpapers/01uIG2a.jpg' --geometry +0 --no-fehbg
-yabar &
-clipmenud &
-frankenwm
-
+# feh --image-bg black --bg-max '/home/walm/wallpapers/01uIG2a.jpg' --geometry +0 --no-fehbg
+exec i3 --shmlog-size 0

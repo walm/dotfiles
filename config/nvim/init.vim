@@ -27,6 +27,7 @@ Plug 'Lokaltog/vim-easymotion'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'kylef/apiblueprint.vim'
+Plug 'PotatoesMaster/i3-vim-syntax'
 
 " Go development
 Plug 'fatih/vim-go'

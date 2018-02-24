@@ -1,13 +1,12 @@
-Xft.dpi: 96
 !Xft.dpi: 192 # for retina
-Xft.autohint: 0
-Xft.lcdfilter: lcddefault
-Xft.hintstyle: hintfull
-Xft.hinting: 1
-Xft.antialias: 1
+Xft.dpi: 96
+Xft.antialias: true
+Xft.hinting: true
 Xft.rgba: rgb
+Xft.autohint: false
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
 
-xcursor.size: 24
 
 ! Base16 Bright
 ! https://github.com/chriskempson/base16
@@ -28,26 +27,44 @@ xcursor.size: 24
 #define base0E #d381c3
 #define base0F #be643c
 
-*foreground:   base05
-*background:   base00
-*cursorColor:  base05
+*foreground:                    base05
+*background:                    base00
+*cursorColor:                   base05
+*fading:                        15
+*fadeColor:                     black
+*pointerColorBackground:        #2B2C2B
+*pointerColorForeground:        #16A085
 
+!! black dark/light
 *color0:       base00
-*color1:       base08
-*color2:       base0B
-*color3:       base0A
-*color4:       base0D
-*color5:       base0E
-*color6:       base0C
-*color7:       base05
-
 *color8:       base03
+
+!! red dark/light
+*color1:       base08
 *color9:       base08
+
+!! green dark/light
+*color2:       base0B
 *color10:      base0B
+
+!! yellow dark/light
+*color3:       base0A
 *color11:      base0A
+
+!! blue dark/light
+*color4:       base0D
 *color12:      base0D
+
+!! magenta dark/light
+*color5:       base0E
 *color13:      base0E
+
+!! cyan dark/light
+*color6:       base0C
 *color14:      base0C
+
+!! white dark/light
+*color7:       base05
 *color15:      base07
 
 ! Note: colors beyond 15 might not be loaded (e.g., xterm, urxvt),
@@ -59,7 +76,10 @@ xcursor.size: 24
 *color20:      base04
 *color21:      base06
 
-rofi.theme: purple
+rofi.theme: Pop-Dark
+
+Xcursor.theme: xcursor-breeze
+Xcursor.size: 0
 
 URxvt*termName: screen-256color
 URxvt*fading: 40
@@ -70,16 +90,13 @@ URxvt*boldColors: on
 URxvt.letterSpace: -1
 URxvt.iso14755: false
 
-! transparent settings (just use the background not underlying windows)
-URxvt*inheritPixmap: true
-URxvt*transparent: true
+! "fake" transparent settings (just use the background not underlying windows)
+! URxvt*inheritPixmap: true
+! URxvt*transparent: true
 ! URxvt*shading: 0 to 99 darkens, 101 to 200 lightens
-URxvt*shading: 15
+! URxvt*shading: 15
 
-! URxvt*font:     xft:monaco:size=10:antialias=true:hinting=true:regular
-! URxvt*boldFont: xft:monaco:size=10:antialias=true:hinting=true:bold
-URxvt*font:       xft:Inconsolata\\-g for Powerline:size=10:antialias=true:hinting=true
-URxvt*boldFont:   xft:Inconsolata\\-g for Powerline:size=10:antialias=true:hinting=true:bold
+URxvt.font: xft:InconsolataNerdFontMono:size=12
 
 ! extentions
 URxvt.perl-ext-common: default,url-select,selection-to-clipboard,resize-font

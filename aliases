@@ -42,7 +42,7 @@ alias colorize="sed ''/PASS/s//$(printf \"\\033[32mPASS\\033[0m\")/'' | sed ''/F
 
 # stoptimer
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
-alias pubip='dig +short myip.opendns.com @resolver1.opendns.com'
+alias pubip='curl https://ifconfig.co'
 
 
 if [[ "$OSTYPE" == "darwin"* ]]; then

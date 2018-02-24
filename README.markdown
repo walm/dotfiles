@@ -19,42 +19,20 @@ Or clone this repo into `~/.dotfiles`
 
 ## Arch requirements
 
-    pacman -S vim tmux bash-completion autojump go ruby the_silver_searcher
+    pacman -S nvim tmux git bash-completion autojump go ruby the_silver_searcher
 
 ## Mac requirements
 
 [Homebrew](http://brew.sh/) and [Xcode](https://developer.apple.com/)
 
     brew install bash bash-completion
-    brew install git git-flow
+    brew install git
     brew install tmux reattach-to-user-namespace
-    brew install vim ctags the_silver_searcher
+    brew install nvim the_silver_searcher
     brew install autojump
     brew install rbenv ruby-build rbenv-ctags
     brew install go
 
-#
-## VIM
-
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-    vim +PluginInstall +qall
-
-## Docker
-
-Use [docker toolbox](https://www.docker.com/toolbox) on OS X
-
-Create a local machine named `local` by
-
-    docker-machine create -d virtualbox \
-        --virtualbox-memory 4096 \
-        --virtualbox-cpu-count 2 \
-        --virtualbox-disk-size 60000 \
-        local
-
-Add bash completions for docker
-
-    brew tap homebrew/completions
-    brew install homebrew/completions/docker-completion
 
 ## Golang
 
