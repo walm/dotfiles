@@ -1,5 +1,8 @@
-!Xft.dpi: 192 # for retina
-Xft.dpi: 96
+! for retina
+Xft.dpi: 192
+*dpi: 192
+! Xft.dpi: 96
+! *dpi: 96
 Xft.antialias: true
 Xft.hinting: true
 Xft.rgba: rgb
@@ -7,6 +10,10 @@ Xft.autohint: false
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 
+! for retina
+xcursor.size: 32
+! xcursor.size: 0
+Xcursor.theme: xcursor-breeze
 
 ! Base16 Bright
 ! https://github.com/chriskempson/base16
@@ -78,8 +85,6 @@ Xft.lcdfilter: lcddefault
 
 rofi.theme: Pop-Dark
 
-Xcursor.theme: xcursor-breeze
-Xcursor.size: 0
 
 URxvt*termName: screen-256color
 URxvt*fading: 40
