@@ -76,14 +76,14 @@ Xcursor.theme: xcursor-breeze
 
 ! Note: colors beyond 15 might not be loaded (e.g., xterm, urxvt),
 ! use 'shell' template to set these if necessary
+*color18:      base01
 *color16:      base09
 *color17:      base0F
-*color18:      base01
 *color19:      base02
 *color20:      base04
 *color21:      base06
 
-rofi.theme: Pop-Dark
+rofi.theme: Arc-Dark
 
 
 URxvt*termName: screen-256color
@@ -92,8 +92,10 @@ URxvt*visualBell: false
 URxvt*urgentOnBell: true
 URxvt.scrollBar: false
 URxvt*boldColors: on
-URxvt.letterSpace: -1
+URxvt.letterSpace: 0
 URxvt.iso14755: false
+URxvt.depth: 32
+URxvt.background: [95]base00
 
 ! "fake" transparent settings (just use the background not underlying windows)
 ! URxvt*inheritPixmap: true
