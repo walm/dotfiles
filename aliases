@@ -25,6 +25,9 @@ alias e='nvim'
 alias h='history'
 alias g='git'
 alias d='docker'
+alias R='docker run -ti --rm -v "$PWD":/home/docker -w /home/docker -u docker r-base'
+alias Rstudio='docker run -d -p 8787:8787 rocker/rstudio && xdg-open http://localhost:8787'
+alias sc=scim
 alias dc-up='docker-compose up'
 alias dc-run='docker-compose run'
 alias week='date +%V'
@@ -51,7 +54,7 @@ else # assume linux
 
   ql() {
     if [[ "$1" == *".pdf" ]]; then
-      zathura --mode=fullscreen "$@"
+      zathura "$@"
     else
       if command -v gpicview 2>/dev/null; then
         gpicview "$@"

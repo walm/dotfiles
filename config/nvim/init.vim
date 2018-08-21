@@ -51,7 +51,7 @@ set hidden
 set ruler              " show the cursor position all the time
 set undofile           " keep an undo file (undo changes after closing)
 set noswapfile         " do not write swap files
-set listchars=tab:▸\ ,trail:·,extends:#,nbsp:·,eol:¬
+set listchars=tab:\ ,trail:·,extends:#,nbsp:·,eol:¬
 set list!              " show invisible characters by default
 set clipboard+=unnamedplus " always use clipboard
 set pastetoggle=<F2>
@@ -140,6 +140,8 @@ let NERDTreeShowFiles=1
 let NERDTreeShowHidden=1
 " don't display these kinds of files
 let NERDTreeIgnore=[ '\~$', '\.obj$', '\.o$', '\.so$', '^\.git$', '\.DS_Store' ]
+let g:NERDTreeDirArrowExpandable = ''
+let g:NERDTreeDirArrowCollapsible = ''
 " }}}
 
 " vim-go settings {{{
