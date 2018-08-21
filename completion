@@ -10,7 +10,7 @@ complete -o bashdefault -o default -o nospace -F _git g 2>/dev/null
 # complete d as docker
 complete -o bashdefault -o default -o nospace -F _docker d 2>/dev/null
 
-# completions for serverless package
-[ -f ~/.node_modules_global/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash ] && . ~/.node_modules_global/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash
-# completions for sls package
-[ -f ~/.node_modules_global/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash ] && . ~/.node_modules_global/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash
+# tabtab source for serverless package
+[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash ] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash
+# tabtab source for sls package
+[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash ] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash
