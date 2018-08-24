@@ -186,6 +186,10 @@ au User fugitive
 au BufReadPost fugitive://* set bufhidden=delete
 " }}}
 
+" gitgutter settings {{{
+set updatetime=100
+" }}}
+
 " Key mappings {{{
 " leave insert mode easy
 map <C-c> <Esc>
