@@ -42,6 +42,7 @@ Plug 'rhysd/vim-crystal'
 
 " Colorschemes
 Plug 'chriskempson/vim-tomorrow-theme'
+Plug 'chriskempson/base16-vim'
 
 call plug#end()
 " }}}
@@ -51,7 +52,7 @@ set hidden
 set ruler              " show the cursor position all the time
 set undofile           " keep an undo file (undo changes after closing)
 set noswapfile         " do not write swap files
-set listchars=tab:\ ,trail:·,extends:#,nbsp:·,eol:¬
+set listchars=tab:▸\ ,trail:·,extends:#,nbsp:·,eol:¬
 set list!              " show invisible characters by default
 set clipboard+=unnamedplus " always use clipboard
 set pastetoggle=<F2>
@@ -61,6 +62,9 @@ set splitbelow         " new window split below
 
 " Colorscheme and highlighting {{{
 colorscheme Tomorrow-Night-Bright
+" let base16colorspace=256
+" colorscheme base16-tomorrow-night
+" colorscheme base16-rebecca
 
 syntax on
 set showmatch          " highlight matching [{()}]
@@ -140,8 +144,6 @@ let NERDTreeShowFiles=1
 let NERDTreeShowHidden=1
 " don't display these kinds of files
 let NERDTreeIgnore=[ '\~$', '\.obj$', '\.o$', '\.so$', '^\.git$', '\.DS_Store' ]
-let g:NERDTreeDirArrowExpandable = ''
-let g:NERDTreeDirArrowCollapsible = ''
 " }}}
 
 " vim-go settings {{{
