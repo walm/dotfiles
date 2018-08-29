@@ -10,6 +10,7 @@ endif
 
 call plug#begin()
 
+Plug 'wincent/terminus'
 Plug 'neomake/neomake'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-markdown'
