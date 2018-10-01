@@ -190,9 +190,13 @@ au User fugitive
 
 " delete fugitive buffers that are hidden (http://vimcasts.org/episodes/fugitive-vim-browsing-the-git-object-database/)
 au BufReadPost fugitive://* set bufhidden=delete
+
+" make sure we update the gutter on write, commits etc
+au BufWritePost * GitGutter
 " }}}
 
 " gitgutter settings {{{
+let g:gitgutter_terminal_reports_focus=0
 set updatetime=100
 " }}}
 
