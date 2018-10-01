@@ -24,6 +24,11 @@ source ~/.dotfiles/aliases
 source ~/.dotfiles/completion
 source ~/.dotfiles/paths
 
+# colors
+if type "dircolors" &> /dev/null; then
+  test -e ~/.dir_colors && eval `dircolors -b ~/.dir_colors`
+fi
+
 # autojump
 if [[ -f /etc/profile.d/autojump.sh ]]; then . /etc/profile.d/autojump.sh; fi
 

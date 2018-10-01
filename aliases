@@ -8,11 +8,14 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias -- -='cd -'
 
+alias ls='ls -F --color=auto'
+
+# use coreutils on macos
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  alias ls='ls -FG'
-else
-  alias ls='ls -F --color=auto'
+  alias ls='gls -F --color=auto'
+  alias dircolors=gdircolors
 fi
+
 alias l='ls -lAh'
 alias la='ls -Al'
 

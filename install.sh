@@ -6,6 +6,7 @@
 # symbol link configs
 ln -is ~/.dotfiles/bashrc ~/.bashrc
 ln -is ~/.dotfiles/bash_profile ~/.bash_profile
+ln -is ~/.dotfiles/dir_colors ~/.dir_colors
 
 ln -isn ~/.dotfiles/vim ~/.vim
 ln -is ~/.dotfiles/vimrc ~/.vimrc
