@@ -44,6 +44,10 @@ Plug 'rhysd/vim-crystal'
 " Colorschemes
 Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'chriskempson/base16-vim'
+Plug 'arcticicestudio/nord-vim'
+
+" pico8
+Plug 'justinj/vim-pico8-syntax'
 
 call plug#end()
 " }}}
@@ -62,10 +66,11 @@ set scrolloff=1        " nr of lines to keep above and below cursor
 set splitbelow         " new window split below
 
 " Colorscheme and highlighting {{{
-colorscheme Tomorrow-Night-Bright
+" colorscheme Tomorrow-Night-Bright
 " let base16colorspace=256
 " colorscheme base16-tomorrow-night
 " colorscheme base16-rebecca
+colorscheme nord
 
 syntax on
 set showmatch          " highlight matching [{()}]
