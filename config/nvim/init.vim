@@ -29,6 +29,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'kylef/apiblueprint.vim'
 Plug 'PotatoesMaster/i3-vim-syntax'
+Plug 'nicwest/vim-http'
 
 " Go development
 Plug 'fatih/vim-go'
@@ -37,6 +38,9 @@ Plug 'jodosha/vim-godebug'
 " Javascript
 Plug 'othree/yajs.vim'
 Plug 'othree/es.next.syntax.vim'
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
 
 " Crystal
 Plug 'rhysd/vim-crystal'
@@ -198,6 +202,10 @@ au BufWritePost * GitGutter
 " gitgutter settings {{{
 let g:gitgutter_terminal_reports_focus=0
 set updatetime=100
+" }}}
+
+" Vim HTTP settings {{{
+let g:vim_http_split_vertically=1
 " }}}
 
 " Key mappings {{{
