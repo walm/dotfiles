@@ -30,6 +30,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'kylef/apiblueprint.vim'
 Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'nicwest/vim-http'
+Plug 'aklt/plantuml-syntax'
 
 " Go development
 Plug 'fatih/vim-go'
