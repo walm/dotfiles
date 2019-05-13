@@ -33,12 +33,13 @@ Plug 'nicwest/vim-http'
 Plug 'aklt/plantuml-syntax'
 
 " Go development
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'jodosha/vim-godebug'
 
 " Javascript
 Plug 'othree/yajs.vim'
 Plug 'othree/es.next.syntax.vim'
+Plug 'posva/vim-vue'
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
