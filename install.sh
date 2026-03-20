@@ -23,7 +23,7 @@ if ! command -v stow &>/dev/null; then
 fi
 
 # Core packages - always installed
-PACKAGES=(zsh git starship tmux lf shellfish_pkg scripts_pkg)
+PACKAGES=(zsh git starship tmux lf television shellfish_pkg scripts_pkg)
 
 # lazygit - only if installed
 if command -v lazygit &>/dev/null; then
