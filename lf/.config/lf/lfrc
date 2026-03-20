@@ -1,0 +1,11 @@
+# set color256
+set scrolloff 10
+set ifs "\n"
+set previewer ~/bin/view
+set nopreview
+
+$mkdir -p ~/.trash
+cmd trash $mv $fx ~/.trash
+map D trash
+map <space> $view $f
+map x toggle; down

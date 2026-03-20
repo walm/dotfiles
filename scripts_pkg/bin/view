@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+view() {
+  local file="${1}"
+  # local height="${2}"
+  local mimetype="$( file --dereference --brief --mime-type -- "${file}" )"
+  case "${mimetype}" in
+    # image/*) feh "${file}" || exit 1;;
+    image/*) qlmanage -p "${file}" || exit 1;;
+    # video/* | audio/*|application/octet-stream) parole "${file}" || exit 1;;
+    video/* | audio/*|application/octet-stream) qlmanage -p "${file}" || exit 1;;
+    # */pdf) qpdfview "${file}" || exit 1;;
+    # */pdf) zathura "${file}" || exit 1;;
+    */pdf) qlmanage -p "${file}" || exit 1;;
+    *) BAT_THEME=Nord bat -p "${file}" || exit 1;;
+  esac
+}
+
+view "$1" "$2"
