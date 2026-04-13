@@ -56,6 +56,9 @@ eval "$(mise activate zsh)"
 
 export EDITOR=nvim
 
+# macOS skip ._* files in tar's
+export COPYFILE_DISABLE=1
+
 # alias
 type exa &>/dev/null && alias ls='exa --git'
 alias j=z
