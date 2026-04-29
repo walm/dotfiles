@@ -1,0 +1,12 @@
+# nice hint'ing
+set hintstyles.fg none
+set hintstyles.bg none
+set hintstyles.outline none
+
+
+# keymap
+bind x tabclose
+
+
+# blacklists (ignore mode)
+blacklistadd typ.ing

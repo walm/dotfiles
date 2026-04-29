@@ -30,6 +30,11 @@ if command -v lazygit &>/dev/null; then
   PACKAGES+=(lazygit_pkg)
 fi
 
+# install tridactyl if zen browser 
+if [ -d "/Applications/Zen.app" ]; then
+  PACKAGES+=(tridactyl)
+fi
+
 # Uncomment to include rubocop config:
 # PACKAGES+=(rubocop)
 
