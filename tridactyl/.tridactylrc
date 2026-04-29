@@ -1,3 +1,7 @@
+# theme
+colourscheme --url https://raw.githubusercontent.com/devnullvoid/tridactyl/main/themes/catppuccin-mocha-cli.css catppuccin-mocha-cli
+# colourscheme --url https://raw.githubusercontent.com/devnullvoid/tridactyl/main/themes/catppuccin-mocha.css catppuccin-mocha
+
 # nice hint'ing
 set hintstyles.fg none
 set hintstyles.bg none
