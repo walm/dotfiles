@@ -14,6 +14,7 @@ Each top-level directory is a stow package that mirrors the `$HOME` tree:
 | `tmux/`          | `.config/tmux/tmux.conf`                         | `~/.config/tmux/tmux.conf`                         |
 | `television/`    | `.config/television/..`                          | `~/.config/television/..`                          |
 | `lf/`            | `.config/lf/lfrc`                                | `~/.config/lf/lfrc`                                |
+| `mpv/`           | `.config/mpv/input.conf`                         | `~/.config/mpv/input.conf`                         |
 | `shellfish_pkg/` | `.shellfish`                                     | `~/.shellfish`                                     |
 | `scripts_pkg/`   | `bin/view`, `bin/font-test.sh`                   | `~/bin/view`, `~/bin/font-test.sh`                 |
 | `lazygit_pkg/`   | `Library/Application Support/lazygit/config.yml` | `~/Library/Application Support/lazygit/config.yml` |
