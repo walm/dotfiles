@@ -7,14 +7,24 @@ requirements = ["tmux"]
 command = "tmux list-windows -a -F '#{session_name}:#{window_index}\t#{window_name}\t#{pane_current_command}'"
 display = "{split:\t:0} - {split:\t:1} ({split:\t:2})"
 output = "{split:\t:0}"
+frecency = true
 
 [preview]
 command = "tmux capture-pane -t '{split:\t:0}' -p 2>/dev/null || echo 'No preview available'"
+
+[keybindings]
+f2 = "actions:new-session"
+f3 = "actions:kill"
 
 [actions.select]
 description = "Switch to the selected window"
 command = "tmux select-window -t '{split:\t:0}'"
 mode = "execute"
+
+[actions.new-session]
+description = "Create a new tmux session and switch to it"
+command = "tmux display-popup -E 'zsh -c \"read \\\"name?Session name: \\\" && tmux new-session -d -s \\\"$name\\\" && tmux switch-client -t \\\"$name\\\"\"'"
+mode = "fork"
 
 [actions.kill]
 description = "Kill the selected window"
