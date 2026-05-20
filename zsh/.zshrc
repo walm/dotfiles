@@ -53,6 +53,7 @@ if command -v ngrok &>/dev/null; then
 fi
 
 eval "$(mise activate zsh)"
+eval "$(but completions zsh)"
 
 export EDITOR=nvim
 
@@ -74,9 +75,12 @@ alias tt=timetrack
 alias cld=claude
 alias cldt=claude-trace
 alias tailscale=/Applications/Tailscale.app/Contents/MacOS/tailscale
+alias serve="python3 -m http.server 8000"
+
+alias \?\?="apfel"
 
 # copilot for cli
-alias \?\?="gh copilot suggest -t shell"
+# alias \?\?="gh copilot --"
 # alias: ghcs ghce
 # https://docs.github.com/en/copilot/managing-copilot/configure-personal-settings/configuring-github-copilot-in-the-cli#setting-up-aliases
 # eval "$(gh copilot alias -- zsh)"
