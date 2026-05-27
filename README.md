@@ -9,7 +9,7 @@ Each top-level directory is a stow package that mirrors the `$HOME` tree:
 | Package          | Contains                                         | Creates symlink at                                 |
 | ---------------- | ------------------------------------------------ | -------------------------------------------------- |
 | `zsh/`           | `.zshrc`                                         | `~/.zshrc`                                         |
-| `git/`           | `.gitconfig`                                     | `~/.gitconfig`                                     |
+| `git/`           | `.gitconfig`, `.config/git/ignore`               | `~/.gitconfig`, `~/.config/git/ignore`             |
 | `starship/`      | `.config/starship.toml`                          | `~/.config/starship.toml`                          |
 | `tmux/`          | `.config/tmux/tmux.conf`                         | `~/.config/tmux/tmux.conf`                         |
 | `television/`    | `.config/television/..`                          | `~/.config/television/..`                          |
