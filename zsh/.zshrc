@@ -48,12 +48,41 @@ path=("/Users/walm/.bun/bin" $path)
 export PATH
 
 # completion
-if command -v ngrok &>/dev/null; then
-  eval "$(ngrok completion)"
+_zsh_completion_cache_dir="${ZSH_CACHE_DIR:-$HOME/.cache/zsh}/completions"
+_cache_zsh_completion() {
+  local name="$1"
+  shift
+  local completion="$_zsh_completion_cache_dir/_$name"
+
+  if command -v "$1" &>/dev/null && [[ ! -f "$completion" ]]; then
+    mkdir -p "$completion:h"
+    "$@" > "$completion.tmp" && mv "$completion.tmp" "$completion"
+    rm -f "$completion.tmp"
+  fi
+}
+
+_zsh_cached_completions=(ngrok pnpm mise but)
+_cache_zsh_completion ngrok ngrok completion
+_cache_zsh_completion pnpm pnpm completion zsh
+_cache_zsh_completion mise mise completion zsh
+_cache_zsh_completion but but completions zsh
+fpath=("$_zsh_completion_cache_dir" $fpath)
+autoload -Uz compinit
+compinit -C
+
+if (( $+functions[compdef] )); then
+  for _zsh_completion in "${_zsh_cached_completions[@]}"; do
+    if [[ -f "$_zsh_completion_cache_dir/_$_zsh_completion" ]]; then
+      autoload -Uz "_$_zsh_completion"
+      compdef "_$_zsh_completion" "$_zsh_completion"
+    fi
+  done
 fi
 
+unset -f _cache_zsh_completion
+unset _zsh_completion_cache_dir _zsh_completion _zsh_cached_completions
+
 eval "$(mise activate zsh)"
-eval "$(but completions zsh)"
 
 export EDITOR=nvim
 
