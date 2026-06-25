@@ -1,0 +1,73 @@
+# herdr configuration
+# https://herdr.dev/docs/configuration/
+
+onboarding = false
+
+[theme]
+name = "catppuccin"
+
+[theme.custom]
+# Pane borders: active matches tmux #81A1C1; inactive uses the darker tmux grey.
+accent = "#81A1C1"
+overlay0 = "#4C566A"
+
+[keys]
+# Match tmux: C-a as the prefix instead of the default C-b.
+prefix = "ctrl+a"
+
+# Session / workspace navigation.
+detach = "prefix+d"
+reload_config = "prefix+shift+r"
+goto = ["prefix+space", "prefix+g"]
+workspace_picker = ["prefix+w"]
+new_workspace = "prefix+shift+n"
+rename_workspace = "prefix+shift+w"
+close_workspace = "prefix+shift+d"
+navigate_workspace_up = ["up", "k", "ctrl+k"]
+navigate_workspace_down = ["down", "j", "ctrl+j"]
+
+# Tabs: closest Herdr equivalent to tmux windows.
+new_tab = "prefix+c"
+rename_tab = "prefix+,"
+previous_tab = "prefix+p"
+next_tab = "prefix+n"
+switch_tab = "prefix+1..9"
+close_tab = "prefix+shift+x"
+
+# Panes: mirror tmux/vim-style splits and movement.
+split_horizontal = "prefix+s"
+split_vertical = "prefix+v"
+focus_pane_left = "prefix+h"
+focus_pane_down = "prefix+j"
+focus_pane_up = "prefix+k"
+focus_pane_right = "prefix+l"
+swap_pane_left = "prefix+shift+h"
+swap_pane_down = "prefix+shift+j"
+swap_pane_up = "prefix+shift+k"
+swap_pane_right = "prefix+shift+l"
+cycle_pane_next = "prefix+tab"
+cycle_pane_previous = "prefix+shift+tab"
+last_pane = "prefix+a"
+close_pane = "prefix+x"
+zoom = "prefix+z"
+resize_mode = "prefix+r"
+
+# Copy mode: tmux config uses `prefix+u` rather than the default `prefix+[`.
+copy_mode = "prefix+u"
+
+# Sidebar / help.
+toggle_sidebar = "prefix+b"
+help = "prefix+?"
+
+[ui]
+mouse_capture = true
+right_click_passthrough_modifier = "ctrl"
+prompt_new_tab_name = true
+pane_borders = true
+pane_gaps = false
+agent_panel_scope = "all"
+confirm_close = true
+
+[ui.toast]
+delivery = "off"
+delay_seconds = 1
