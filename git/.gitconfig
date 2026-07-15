@@ -3,7 +3,7 @@
 	email = andreas@walm.net
 [init]
 	;templatedir = ~/.git_template
-	defaultBranch = master
+	defaultBranch = main
 [color]
 	ui = auto
 [alias]

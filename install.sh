@@ -25,6 +25,11 @@ fi
 # Core packages - always installed
 PACKAGES=(zsh git starship tmux lf television mpv shellfish_pkg scripts_pkg claude)
 
+# herdr - only if installed
+if command -v herdr &>/dev/null; then
+  PACKAGES+=(herdr)
+fi
+
 # lazygit - only if installed
 if command -v lazygit &>/dev/null; then
   PACKAGES+=(lazygit_pkg)
@@ -41,6 +46,12 @@ fi
 echo "Stowing packages: ${PACKAGES[*]}"
 cd "$SCRIPT_DIR"
 for pkg in "${PACKAGES[@]}"; do
+  if [[ "$pkg" == "herdr" && -e "$HOME/.config/herdr/config.toml" && ! -L "$HOME/.config/herdr/config.toml" ]]; then
+    backup="$HOME/.config/herdr/config.toml.backup.$(date +%Y%m%d%H%M%S)"
+    echo "  Backing up existing Herdr config to $backup ..."
+    mv "$HOME/.config/herdr/config.toml" "$backup"
+  fi
+
   echo "  Stowing $pkg ..."
   stow -v --target="$HOME" --restow "$pkg"
 done
