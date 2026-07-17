@@ -24,7 +24,7 @@ Each top-level directory is a stow package that mirrors the `$HOME` tree:
 
 ## Install
 
-Prerequisites: [GNU Stow](https://www.gnu.org/software/stow/) (`brew install stow`)
+See [PRE-REQUISITES.md](PRE-REQUISITES.md) for required and optional tools.
 
 ```bash
 git clone <repo-url> ~/src/dotfiles
