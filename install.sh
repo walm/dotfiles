@@ -23,7 +23,7 @@ if ! command -v stow &>/dev/null; then
 fi
 
 # Core packages - always installed
-PACKAGES=(zsh git starship tmux lf television atuin mpv shellfish_pkg scripts_pkg claude)
+PACKAGES=(zsh git starship tmux lf television atuin hunk mpv shellfish_pkg scripts_pkg claude)
 
 # herdr - only if installed
 if command -v herdr &>/dev/null; then
@@ -56,6 +56,12 @@ for pkg in "${PACKAGES[@]}"; do
     backup="$HOME/.config/atuin/config.toml.backup.$(date +%Y%m%d%H%M%S)"
     echo "  Backing up existing Atuin config to $backup ..."
     mv "$HOME/.config/atuin/config.toml" "$backup"
+  fi
+
+  if [[ "$pkg" == "hunk" && -e "$HOME/.config/hunk/config.toml" && ! -L "$HOME/.config/hunk/config.toml" ]]; then
+    backup="$HOME/.config/hunk/config.toml.backup.$(date +%Y%m%d%H%M%S)"
+    echo "  Backing up existing Hunk config to $backup ..."
+    mv "$HOME/.config/hunk/config.toml" "$backup"
   fi
 
   echo "  Stowing $pkg ..."

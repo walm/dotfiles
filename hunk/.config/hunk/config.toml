@@ -1,0 +1,5 @@
+# Match the Catppuccin Mocha palette used by the shell prompt.
+theme = "catppuccin-mocha"
+
+# Always render diffs side-by-side.
+mode = "split"

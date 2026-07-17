@@ -14,6 +14,7 @@ Each top-level directory is a stow package that mirrors the `$HOME` tree:
 | `tmux/`          | `.config/tmux/tmux.conf`                         | `~/.config/tmux/tmux.conf`                         |
 | `television/`    | `.config/television/..`                          | `~/.config/television/..`                          |
 | `atuin/`         | `.config/atuin/config.toml`                      | `~/.config/atuin/config.toml`                      |
+| `hunk/`          | `.config/hunk/config.toml`                       | `~/.config/hunk/config.toml`                       |
 | `lf/`            | `.config/lf/lfrc`                                | `~/.config/lf/lfrc`                                |
 | `mpv/`           | `.config/mpv/input.conf`                         | `~/.config/mpv/input.conf`                         |
 | `shellfish_pkg/` | `.shellfish`                                     | `~/.shellfish`                                     |
