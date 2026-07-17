@@ -1,0 +1,9 @@
+# Limit history opened with the Up arrow to commands run in the current directory.
+filter_mode_shell_up_key_binding = "directory"
+
+[ai]
+enabled = true
+
+[daemon]
+enabled = true
+autostart = true

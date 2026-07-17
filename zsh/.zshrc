@@ -119,8 +119,7 @@ alias :q=exit
 # iPad shellfish integration
 source $HOME/.shellfish
 
-# atuin init
-# - history tracker
+# Atuin history search (including directory-scoped Up-arrow history)
 if command -v atuin &>/dev/null; then
   eval "$(atuin init zsh)"
 fi
