@@ -16,7 +16,6 @@ antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
 antigen bundle hkupty/ssh-agent
 antigen bundle common-aliases
-# antigen bundle atuinsh/atuin@main
 
 if type zoxide &>/dev/null
 then
@@ -34,6 +33,7 @@ VI_MODE_SET_CURSOR=true
 # prepend to path
 path=("$HOME/.local/bin" $path)
 path=("$HOME/bin" $path)
+path=("$HOME/.atuin/bin" $path)
 if type brew &>/dev/null
 then
   path=("$(brew --prefix)/opt/curl/bin" $path)
@@ -121,10 +121,9 @@ source $HOME/.shellfish
 
 # atuin init
 # - history tracker
-# if command -v atuin &>/dev/null; then
-#   source "$HOME/.atuin/bin/env"
-#   eval "$(atuin init --disable-up-arrow zsh)"
-# fi
+if command -v atuin &>/dev/null; then
+  eval "$(atuin init zsh)"
+fi
 
 # worktrunk init
 # - git worktree util
@@ -139,4 +138,13 @@ eval "$(starship init zsh)"
 # clean up and fixes
 unalias br 2>/dev/null  # remove conflicting alias
 unalias bb 2>/dev/null  # remove conflicting alias
+
+
+# pnpm
+export PNPM_HOME="/Users/walm/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+esac
+# pnpm end
 
