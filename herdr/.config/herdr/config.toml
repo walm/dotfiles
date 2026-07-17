@@ -74,6 +74,7 @@ agent_panel_scope = "all"
 confirm_close = true
 show_prefix_hint = false # DONE: implement
 agent_panel_sort = "spaces"
+tab_number_prefix = true # DONE: implement
 
 [ui.toast]
 delivery = "off"
