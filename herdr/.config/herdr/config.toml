@@ -17,13 +17,16 @@ overlay0 = "#45475A"
 mouse_capture = true
 right_click_passthrough_modifier = "ctrl"
 prompt_new_tab_name = true
+workspace_tab_label = "on" # DONE: implement (on/off/auto)
+tab_number_prefix = true # DONE: implement
+tab_agent_status = true # DONE: implement
 pane_borders = true
 pane_gaps = false
 agent_panel_scope = "all"
 confirm_close = true
 show_prefix_hint = false # DONE: implement
 agent_panel_sort = "spaces"
-tab_number_prefix = true # DONE: implement
+agent_panel_scope = "current" # DONE: implement, default "all"
 
 [keys]
 # Match tmux: C-a as the prefix instead of the default C-b.
@@ -65,6 +68,8 @@ swap_pane_right = "prefix+shift+l"
 cycle_pane_next = "prefix+tab"
 cycle_pane_previous = "prefix+shift+tab"
 last_pane = "prefix+a"
+# last_pane = "prefix+shift+A" # original that we replace with last_pane_in_tab
+# last_pane_in_tab = "prefix+a" # DONE: implement
 close_pane = "prefix+x"
 zoom = "prefix+z"
 resize_mode = "prefix+r"
