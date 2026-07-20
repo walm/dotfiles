@@ -28,6 +28,9 @@ show_prefix_hint = false # DONE: implement
 agent_panel_sort = "spaces"
 agent_panel_scope = "current" # DONE: implement, default "all"
 
+[experimental]
+pane_history = true
+
 [keys]
 # Match tmux: C-a as the prefix instead of the default C-b.
 prefix = "ctrl+a"
