@@ -101,6 +101,7 @@ alias v=view
 alias more=view
 alias ag=rga
 alias tt=timetrack
+alias tm=todomd
 alias cld=claude
 alias cldt=claude-trace
 alias tailscale=/Applications/Tailscale.app/Contents/MacOS/tailscale
