@@ -22,11 +22,10 @@ tab_number_prefix = true # DONE: implement
 tab_agent_status = true # DONE: implement
 pane_borders = true
 pane_gaps = false
-agent_panel_scope = "all"
 confirm_close = true
 show_prefix_hint = false # DONE: implement
-agent_panel_sort = "spaces"
-agent_panel_scope = "current" # DONE: implement, default "all"
+agent_panel_sort = "priority"
+agent_panel_scope = "current"
 
 [experimental]
 pane_history = true
@@ -83,6 +82,24 @@ copy_mode = "prefix+u"
 # Sidebar / help.
 toggle_sidebar = "prefix+b"
 help = "prefix+?"
+
+# television pickers, mirroring the tmux `prefix+Space` / `prefix+S` bindings.
+# These complement the built-in goto/workspace_picker with fuzzy search over
+# every pane, tab and workspace at once. See scripts_pkg/bin/herdr-tv.
+[[keys.command]]
+key = "prefix+alt+p"
+type = "pane"
+command = "herdr-tv pick panes"
+
+[[keys.command]]
+key = "prefix+alt+t"
+type = "pane"
+command = "herdr-tv pick tabs"
+
+[[keys.command]]
+key = "prefix+alt+w"
+type = "pane"
+command = "herdr-tv pick workspaces"
 
 [ui.toast]
 delivery = "off"

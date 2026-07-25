@@ -1,0 +1,23 @@
+[metadata]
+name = "herdr-tabs"
+description = "List and switch between herdr tabs across all workspaces"
+requirements = ["herdr", "herdr-tv"]
+
+[source]
+command = "herdr-tv tabs"
+display = "{split:\t:1} ({split:\t:2})"
+output = "{split:\t:0}"
+frecency = true
+
+[keybindings]
+f3 = "actions:close"
+
+[actions.select]
+description = "Focus the selected tab"
+command = "herdr tab focus '{split:\t:0}'"
+mode = "execute"
+
+[actions.close]
+description = "Close the selected tab"
+command = "herdr tab close '{split:\t:0}'"
+mode = "fork"

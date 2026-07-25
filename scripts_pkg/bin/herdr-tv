@@ -1,0 +1,142 @@
+#!/usr/bin/env python3
+"""Helper for the television herdr-* cables.
+
+`herdr pane focus` only moves focus directionally, so focusing an arbitrary
+pane goes through the socket API's pane.focus method directly.
+
+Usage:
+  herdr-tv panes           # TSV: pane_id, "workspace/tab - name [agent]", cwd
+  herdr-tv tabs            # TSV: tab_id, "workspace/n. label [agent]", pane count
+  herdr-tv focus <pane_id> # focus a pane (switches workspace + tab as needed)
+  herdr-tv pick panes      # run the picker and focus the result (see [[keys.command]])
+"""
+
+import json
+import os
+import socket
+import subprocess
+import sys
+
+SOCKET_PATH = os.environ.get(
+    "HERDR_SOCKET_PATH", os.path.expanduser("~/.config/herdr/herdr.sock")
+)
+
+# Panes with no running agent report this; not worth showing in the list.
+UNKNOWN_AGENT = "unknown"
+
+
+def request(method, params):
+    """Send one request to the herdr socket and return its result payload."""
+    with socket.socket(socket.AF_UNIX, socket.SOCK_STREAM) as sock:
+        sock.connect(SOCKET_PATH)
+        sock.sendall((json.dumps({"id": "tv", "method": method, "params": params}) + "\n").encode())
+        buf = b""
+        while b"\n" not in buf:
+            chunk = sock.recv(65536)
+            if not chunk:
+                break
+            buf += chunk
+    response = json.loads(buf.decode().splitlines()[0])
+    if "error" in response:
+        sys.exit("herdr: {}".format(response["error"].get("message", response["error"])))
+    return response.get("result", {})
+
+
+def cli_list(kind):
+    """Read a list via the CLI, which handles server startup and version checks."""
+    out = subprocess.run(
+        ["herdr", kind, "list"], capture_output=True, text=True, check=True
+    ).stdout
+    return json.loads(out)["result"]
+
+
+def panes():
+    workspaces = {w["workspace_id"]: w for w in cli_list("workspace")["workspaces"]}
+    tabs = {t["tab_id"]: t for t in cli_list("tab")["tabs"]}
+
+    rows = []
+    for pane in cli_list("pane")["panes"]:
+        workspace = workspaces.get(pane["workspace_id"], {})
+        tab = tabs.get(pane["tab_id"], {})
+        cwd = pane.get("cwd", "")
+        # Unlabelled panes are common; the directory is the useful identifier.
+        name = pane.get("label") or os.path.basename(cwd) or pane["pane_id"]
+        agent = pane.get("agent_status", UNKNOWN_AGENT)
+        label = "{}/{} - {}".format(
+            workspace.get("label", pane["workspace_id"]),
+            tab.get("label", pane["tab_id"]),
+            name,
+        )
+        if agent != UNKNOWN_AGENT:
+            label += " [{}]".format(agent)
+        rows.append(
+            "\t".join([pane["pane_id"], label, cwd.replace(os.path.expanduser("~"), "~")])
+        )
+    print("\n".join(rows))
+
+
+def tabs():
+    workspaces = {w["workspace_id"]: w for w in cli_list("workspace")["workspaces"]}
+
+    rows = []
+    for tab in cli_list("tab")["tabs"]:
+        workspace = workspaces.get(tab["workspace_id"], {})
+        agent = tab.get("agent_status", UNKNOWN_AGENT)
+        label = "{}/{}. {}".format(
+            workspace.get("label", tab["workspace_id"]), tab.get("number", ""), tab.get("label", "")
+        )
+        if agent != UNKNOWN_AGENT:
+            label += " [{}]".format(agent)
+        rows.append(
+            "\t".join([tab["tab_id"], label, "{} panes".format(tab.get("pane_count", 0))])
+        )
+    print("\n".join(rows))
+
+
+# How to act on a selection from each picker channel.
+PICKERS = {
+    "panes": "herdr-panes",
+    "tabs": "herdr-tabs",
+    "workspaces": "herdr-workspaces",
+}
+
+
+def pick(kind):
+    """Run the television channel, then focus whatever came back."""
+    if kind not in PICKERS:
+        sys.exit("usage: herdr-tv pick {}".format("|".join(PICKERS)))
+    # tv draws its UI on stderr/the tty and prints only the selection to stdout,
+    # so stderr must stay attached or the picker renders nothing.
+    selected = subprocess.run(
+        ["tv", PICKERS[kind]], stdout=subprocess.PIPE, text=True
+    ).stdout.strip()
+    if not selected:  # escaped out of the picker
+        return
+    if kind == "panes":
+        request("pane.focus", {"pane_id": selected})
+    elif kind == "tabs":
+        subprocess.run(["herdr", "tab", "focus", selected], capture_output=True, check=False)
+    else:
+        subprocess.run(["herdr", "workspace", "focus", selected], capture_output=True, check=False)
+
+
+def main():
+    if len(sys.argv) < 2:
+        sys.exit(__doc__)
+    command = sys.argv[1]
+    if command == "panes":
+        panes()
+    elif command == "tabs":
+        tabs()
+    elif command == "pick":
+        pick(sys.argv[2] if len(sys.argv) > 2 else "")
+    elif command == "focus":
+        if len(sys.argv) < 3 or not sys.argv[2].strip():
+            sys.exit("usage: herdr-tv focus <pane_id>")
+        request("pane.focus", {"pane_id": sys.argv[2].strip()})
+    else:
+        sys.exit("unknown command: {}".format(command))
+
+
+if __name__ == "__main__":
+    main()

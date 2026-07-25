@@ -1,0 +1,26 @@
+[metadata]
+name = "herdr-workspaces"
+description = "List and switch between herdr workspaces"
+requirements = ["herdr", "jq"]
+
+[source]
+command = "herdr workspace list | jq -r '.result.workspaces[] | [.workspace_id, .label, \"\\(.tab_count) tabs, \\(.pane_count) panes\", .agent_status] | @tsv'"
+display = "{split:\t:1} ({split:\t:2}) [{split:\t:3}]"
+output = "{split:\t:0}"
+frecency = true
+
+[preview]
+command = "herdr tab list --workspace '{split:\t:0}' | jq -r '.result.tabs[] | \"\\(.number). \\(.label)  [\\(.agent_status)]  \\(.pane_count) panes\"' 2>/dev/null || echo 'No preview available'"
+
+[keybindings]
+f3 = "actions:close"
+
+[actions.select]
+description = "Focus the selected workspace"
+command = "herdr workspace focus '{split:\t:0}'"
+mode = "execute"
+
+[actions.close]
+description = "Close the selected workspace"
+command = "herdr workspace close '{split:\t:0}'"
+mode = "fork"

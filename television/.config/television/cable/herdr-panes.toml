@@ -1,0 +1,26 @@
+[metadata]
+name = "herdr-panes"
+description = "List and jump to herdr panes across all workspaces"
+requirements = ["herdr", "herdr-tv"]
+
+[source]
+command = "herdr-tv panes"
+display = "{split:\t:1} ({split:\t:2})"
+output = "{split:\t:0}"
+frecency = true
+
+[preview]
+command = "herdr pane read '{split:\t:0}' --lines 200 2>/dev/null || echo 'No preview available'"
+
+[keybindings]
+f3 = "actions:close"
+
+[actions.select]
+description = "Focus the selected pane"
+command = "herdr-tv focus '{split:\t:0}'"
+mode = "execute"
+
+[actions.close]
+description = "Close the selected pane"
+command = "herdr pane close '{split:\t:0}'"
+mode = "fork"
