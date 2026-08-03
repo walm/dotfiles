@@ -18,6 +18,7 @@ mouse_capture = true
 right_click_passthrough_modifier = "ctrl"
 prompt_new_tab_name = true
 workspace_tab_label = "on" # DONE: implement (on/off/auto)
+prompt_new_workspace_name = true
 tab_number_prefix = true # DONE: implement
 tab_agent_status = true # DONE: implement
 pane_borders = true
@@ -75,6 +76,7 @@ last_pane = "prefix+a"
 close_pane = "prefix+x"
 zoom = "prefix+z"
 resize_mode = "prefix+r"
+toggle_pin_pane = "prefix+shift+p" # DONE: implement  
 
 # Copy mode: tmux config uses `prefix+u` rather than the default `prefix+[`.
 copy_mode = "prefix+u"
@@ -88,18 +90,27 @@ help = "prefix+?"
 # every pane, tab and workspace at once. See scripts_pkg/bin/herdr-tv.
 [[keys.command]]
 key = "prefix+alt+p"
-type = "pane"
+type = "popup"
 command = "herdr-tv pick panes"
+description = "herdr-tv pick panes"
+width = "80%"
+height = "80%"
 
 [[keys.command]]
 key = "prefix+alt+t"
-type = "pane"
+type = "popup"
 command = "herdr-tv pick tabs"
+description = "herdr-tv pick tabs"
+width = "80%"
+height = "80%"
 
 [[keys.command]]
 key = "prefix+alt+w"
-type = "pane"
+type = "popup"
 command = "herdr-tv pick workspaces"
+description = "herdr-tv pick workspace"
+width = "80%"
+height = "80%"
 
 [ui.toast]
 delivery = "off"
