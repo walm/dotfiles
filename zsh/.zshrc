@@ -34,6 +34,7 @@ VI_MODE_SET_CURSOR=true
 path=("$HOME/.local/bin" $path)
 path=("$HOME/bin" $path)
 path=("$HOME/.atuin/bin" $path)
+path=("$HOME/.opencode/bin" $path)
 if type brew &>/dev/null
 then
   path=("$(brew --prefix)/opt/curl/bin" $path)
@@ -148,4 +149,5 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME/bin:$PATH" ;;
 esac
 # pnpm end
+
 
